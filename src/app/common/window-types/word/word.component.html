@@ -1,0 +1,32 @@
+<div class="word-container">
+  <div class="word-settings">
+    <div class="settings-item select-item font-type-select">
+      <select #fontType (change)="changeFontType(fontType)">
+        <ng-container *ngFor="let item of fonts; let i = index">
+          <option [selected]="i === 0" [value]="item.name">{{item.name}}</option>
+        </ng-container>
+      </select>
+      <i></i>
+    </div>
+    <div class="settings-item select-item font-size-select">
+      <select #fontSize (change)="changeFontSize(fontSize)">
+        <ng-container *ngFor="let item of sizes; let i = index">
+          <option [selected]="i === 2" [value]="item.size">{{item.size}}</option>
+        </ng-container>
+      </select>
+      <i></i>
+    </div>
+  </div>
+  <div class="word-document-wrapper">
+    <div class="word-document" [ngClass]="[defaultFont.style, defaultSize.name]" contenteditable="true">
+      <div class="title" id="title">{{title}}</div>
+      <div class="content" *ngIf="content">
+        <ng-container *ngFor="let paragraph of content; let i = index">
+          <p class="content-paragraph" id="paragraph-{{i}}">
+            {{paragraph}}
+          </p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

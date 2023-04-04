@@ -1,0 +1,12 @@
+<div class="desktop-item-container">
+  <div class="desktop-item-icon">
+    <ng-container [ngSwitch]="type">
+      <img *ngSwitchCase="'txt'" src="../../../../assets/icons/icon-sys.svg" alt="">
+      <img *ngSwitchCase="'doc'" src="../../../../assets/icons/icon-sys.svg" alt="">
+      <img *ngSwitchCase="'img'" src="../../../../assets/icons/icon-sys.svg" alt="">
+      <img *ngSwitchDefault src="../../../../assets/icons/icon-sys.svg" alt="">
+
+    </ng-container>
+  </div>
+  <div class="desktop-item-name">{{name}}</div>
+</div>

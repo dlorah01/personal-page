@@ -1,0 +1,74 @@
+<div class="main-container">
+  <div class="wallpaper-container">
+    <div class="wallpaper-wrapper">
+      <div class="grid">
+        <div class="vertical">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div class="dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="horizontal">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+    <div class="desktop-wrapper">
+      <app-topbar class="topbar">
+      </app-topbar>
+      <div class="desktop">
+        <div class="desktop-items-container" *ngIf="desktopItems">
+          <ng-container *ngFor="let item of desktopItems; let i = index">
+            <app-desktop-item
+              [name]="item.name"
+              [type]="item.type"
+              [routerLink]="[item.route]"
+              (click)="updateSelection(i)"
+            >
+            </app-desktop-item>
+          </ng-container>
+        </div>
+        <div class="window-overlay" *ngIf="this.router.url !== '/main'">
+          <app-window
+            class="window"
+            [ngClass]="{'maximized': maximizeWindow}"
+            (onClose)="closeWindow()"
+            (onSizeChange)="resizeWindow($event)"
+          >
+            <router-outlet></router-outlet>
+          </app-window>
+        </div>
+      </div>
+      <app-dock class="dock">
+      </app-dock>
+    </div>
+  </div>
+</div>

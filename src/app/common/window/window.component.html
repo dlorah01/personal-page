@@ -1,0 +1,15 @@
+<div class="window-container" [ngClass]="{'maximize': maximize}">
+  <div class="window-topbar-container">
+    <div class="window-controls">
+      <a class="control-button close-button" (click)="closeWindow()"></a>
+      <a class="control-button maximize-button" (click)="maximizeWindow()" *ngIf="!maximize"></a>
+      <a class="control-button minimize-button" (click)="minimizeWindow()" *ngIf="maximize"></a>
+    </div>
+    <div class="window-name">
+      {{name}} - {{program}}
+    </div>
+  </div>
+  <div class="window-content-container">
+    <ng-content></ng-content>
+  </div>
+</div>
