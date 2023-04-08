@@ -4,10 +4,36 @@
       H
     </div>
     <app-menu></app-menu>
+    {{'title' | translate}}
     <div class="settings-container">
-      <div class="setting-item language-item">Language</div>
-      <div class="setting-item theme-item"> Clock</div>
-      <div class="setting-item clock-item">{{ currentTime | date: 'EEEE MMM d h:mm a' }}</div>
+      <div class="setting-item language-item">
+        <app-select id="test-id"
+        (change)="updateLanguage($event)"
+        >
+          <ng-container *ngFor="let item of languages" class="select-option">
+            <app-select-option value="{{item.code}}">
+              <div class="img-container">
+                <img src="../../../assets/flags/{{item.code}}.svg" alt="">
+              </div>
+            </app-select-option>
+          </ng-container>
+        </app-select>
+      </div>
+      <div class="setting-item theme-item">
+        <!-- <app-select-simplified [options]="options" [label]="'name'" [key]="'value'" (emitValue)="updateSelection($event)"></app-select-simplified> -->
+        <app-select id="test-id"
+        (change)="update($event)"
+        >
+          <ng-container *ngFor="let item of options">
+            <app-select-option value="{{item.value}}" class="select-option">
+              <div class="img-container">
+                <img src="../../../assets/themes/{{item.value}}.svg" alt="">
+              </div>
+            </app-select-option>
+          </ng-container>
+        </app-select>
+      </div>
+      <div class="setting-item clock-item">{{ currentTime | localizedDate: 'EEEE MMM d h:mm a' }}</div>
     </div>
   </div>
 </div>

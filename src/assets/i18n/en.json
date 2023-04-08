@@ -1,0 +1,14 @@
+{
+  "title": "Harold in English",
+  "sections": {
+    "about":{
+      "title": "About me"
+    },
+    "projects":{
+      "title": "Projects"
+    },
+    "email":{
+      "title": "Contact me"
+    }
+  }
+}

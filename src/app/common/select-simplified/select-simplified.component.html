@@ -1,0 +1,8 @@
+<div class="settings-item select-item font-size-select">
+  <select #selectElement (change)="emitSelection(selectElement)">
+    <ng-container *ngFor="let item of options; let i = index">
+      <option [selected]="i === 0" [value]="item[key]">{{item[label]}}</option>
+    </ng-container>
+  </select>
+  <i></i>
+</div>

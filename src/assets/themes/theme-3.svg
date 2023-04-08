@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="200px" width="200px">
+  <defs>
+    <linearGradient id="0" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#7700a6"/>
+      <stop offset="8.67%" stop-color="#a200c5"/>
+      <stop offset="26%" stop-color="#fe00fe"/>
+      <stop offset="34.67%" stop-color="#fd8eaa"/>
+      <stop offset="52%" stop-color="#defe47"/>
+      <stop offset="60.33%" stop-color="#33f4a1"/>
+      <stop offset="77%" stop-color="#00b3fe"/>
+      <stop offset="84.33%" stop-color="#008ce4"/>
+      <stop offset="99%" stop-color="#0016ee"/>
+    </linearGradient>
+  </defs>
+  <rect fill="url(#0)" height="100%" width="100%"/>
+</svg>

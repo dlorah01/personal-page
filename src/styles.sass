@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/cdk/overlay-prebuilt.css'
 *
   box-sizing: border-box
   -moz-box-sizing: border-box
@@ -9,11 +10,130 @@ html
   font-family: sans-serif
   -ms-text-size-adjust: 100%
   -webkit-text-size-adjust: 100%
+  font-size: 14px
 
   body
     margin: 0
     font-family: 'Courier Prime', monospace
     font-family: 'Montserrat', sans-serif
+
+    --color-white-1: #ddd
+    --color-white-1-rgb: 221, 221, 221
+    --color-white-2: #eee
+    --color-white-2-rgb: 238, 238, 238
+    --color-white-3: #fff
+    --color-white-3-rgb: 255, 255, 255
+    --color-black-1: #222
+    --color-black-1-rgb: 34, 34, 34
+    --color-black-2: #111
+    --color-black-2-rgb: 17, 17, 17
+    --color-black-3: #000
+    --color-black-3-rgb: 0, 0, 0
+
+    &.theme-1
+      --color-1: #a0ffe3
+      --color-1-rgb: 160, 255, 227
+      --color-2: #65dc98
+      --color-2-rgb: 101, 220, 152
+      --color-3: #041348
+      --color-3-rgb: 141, 137, 128
+      --color-4: #575267
+      --color-4-rgb: 87, 82, 103
+      --color-5: #222035
+      --color-5-rgb: 34, 32, 53
+      --base-font: var(--color-white-1)
+      --base-hover: var(--color-white-1-rgb)
+      --base-active: var(--color-white-1)
+
+    &.theme-2
+      --color-1: #f887ff
+      --color-1-rgb: 248, 135, 255
+      --color-2: #de004e
+      --color-2-rgb: 222, 0, 78
+      --color-3: #860029
+      --color-3-rgb: 134, 0, 41
+      --color-4: #321450
+      --color-4-rgb: 50, 20, 80
+      --color-5: #29132e
+      --color-5-rgb: 41, 19, 46
+      --base-font: var(--color-white-1)
+      --base-hover: var(--color-white-1-rgb)
+      --base-active: var(--color-white-1)
+
+    &.theme-3
+      --color-1: #7700a6
+      --color-1-rgb: 119, 0, 166
+      --color-2: #fe00fe
+      --color-2-rgb: 254, 0, 254
+      --color-3: #defe47
+      --color-3-rgb: 222, 254, 71
+      --color-4: #00b3fe
+      --color-4-rgb: rgb0, 179, 254
+      --color-5: #0016ee
+      --color-5-rgb: rgb(0, 22, 238)
+      --base-font: var(--color-black-1)
+      --base-hover: var(--color-black-1-rgb)
+      --base-active: var(--color-black-1)
+
+    &.theme-4
+      --color-1: #ff6e27
+      --color-1-rgb: 255, 110, 39
+      --color-2: #fbf665
+      --color-2-rgb: 251, 246, 101
+      --color-3: #73fffe
+      --color-3-rgb: 115, 255, 254
+      --color-4: #6287f8
+      --color-4-rgb: 98, 135, 248
+      --color-5: #383e65
+      --color-5-rgb: 56, 62, 101
+      --base-font: var(--color-black-1)
+      --base-hover: var(--color-black-1-rgb)
+      --base-active: var(--color-black-1)
+
+    &.theme-5
+      --color-1: #ff2a6d
+      --color-1-rgb: 255, 42, 109
+      --color-2: #d1f7ff
+      --color-2-rgb: 209, 247, 255
+      --color-3: #05d9e8
+      --color-3-rgb: 5, 217, 232
+      --color-4: #005678
+      --color-4-rgb: 0, 86, 120
+      --color-5: #01012b
+      --color-5-rgb: 1, 1, 43
+      --base-font: var(--color-black-1)
+      --base-hover: var(--color-black-1-rgb)
+      --base-active: var(--color-black-1)
+
+    &.theme-6
+      --color-1: #8386f5
+      --color-1-rgb: 131, 134, 245
+      --color-2: #3d43b4
+      --color-2-rgb: 61, 67, 180
+      --color-3: #041348
+      --color-3-rgb: 4, 19, 72
+      --color-4: #083e12
+      --color-4-rgb: 8, 62, 18
+      --color-5: #1afe49
+      --color-5-rgb: 26, 254, 73
+      --base-font: var(--color-white-1)
+      --base-hover: var(--color-white-1-rgb)
+      --base-active: var(--color-white-1)
+
+    &.theme-7
+      --color-1: #e96d5e
+      --color-1-rgb: 233, 109, 94
+      --color-2: #ff9760
+      --color-2-rgb: 255, 151, 96
+      --color-3: #ffe69d
+      --color-3-rgb: 255, 230, 157
+      --color-4: #6a7e6a
+      --color-4-rgb: 106, 126, 106
+      --color-5: #393f5f
+      --color-5-rgb: 57, 63, 95
+      --base-font: var(--color-black-1)
+      --base-hover: var(--color-black-1-rgb)
+      --base-active: var(--color-black-1)
 
     //     font-family: 'Courier Prime', monospace;
 

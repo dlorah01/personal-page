@@ -1,5 +1,6 @@
 <div class="word-container">
   <div class="word-settings">
+    {{ 'title' | translate}}
     <div class="settings-item select-item font-type-select">
       <select #fontType (change)="changeFontType(fontType)">
         <ng-container *ngFor="let item of fonts; let i = index">

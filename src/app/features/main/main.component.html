@@ -1,6 +1,7 @@
-<div class="main-container">
+<div class="main-container" [ngClass]="currentTheme">
   <div class="wallpaper-container">
     <div class="wallpaper-wrapper">
+      <div class="circle-2"></div>
       <div class="grid">
         <div class="vertical">
           <div class="line"></div>
@@ -14,8 +15,28 @@
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
         </div>
         <div class="dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
           <div class="dot"></div>
           <div class="dot"></div>
           <div class="dot"></div>
@@ -42,7 +63,7 @@
       </div>
     </div>
     <div class="desktop-wrapper">
-      <app-topbar class="topbar">
+      <app-topbar class="topbar" (emitValue)="updateTheme($event)" (emitLanguageValue)="updateLanguage($event)">
       </app-topbar>
       <div class="desktop">
         <div class="desktop-items-container" *ngIf="desktopItems">

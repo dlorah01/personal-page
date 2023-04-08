@@ -1,0 +1,15 @@
+{
+  "title": "Harold en Español",
+  "sections": {
+    "about":{
+      "title": "Acerca de mi"
+    },
+    "projects":{
+      "title": "Proyectos"
+    },
+    "email":{
+      "title": "Contácteme"
+    }
+  }
+}
+

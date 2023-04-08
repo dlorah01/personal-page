@@ -10,7 +10,7 @@
   cursor: pointer
 
   &:hover
-    background: rgba(255, 255 ,255 , 0.1)
+    background-color: rgba(var(--base-hover) , 0.1)
     -webkit-backdrop-filter: blur(10px)
     backdrop-filter: blur(10px)
 
@@ -24,5 +24,6 @@
       // filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%)
 
   .desktop-item-name
-    color: $color-white
+    padding: 10px 5px
+    color: var(--base-font)
     font-family: 'Courier Prime', monospace
