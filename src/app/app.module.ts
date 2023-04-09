@@ -12,6 +12,8 @@ import es from '@angular/common/locales/es';
 import en from '@angular/common/locales/en';
 import { PipesModule } from './pipes/pipes.module';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 registerLocaleData(en);
 registerLocaleData(es);
 
@@ -28,6 +30,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     HttpClientModule,
     PipesModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot(
       {
         defaultLanguage: 'en',

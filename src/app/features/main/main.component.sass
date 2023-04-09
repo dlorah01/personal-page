@@ -22,6 +22,8 @@
       left: 0
       bottom: 0px
       perspective: 200px
+      object-fit: cover
+      object-position: top
       overflow: hidden
       background-image: linear-gradient(to top, var(--color-black-1), var(--color-3))
 
@@ -339,3 +341,10 @@
   100%
     top: 0%
     opacity: 0
+
+@keyframes fadeInAnimation
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1

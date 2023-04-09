@@ -2,7 +2,12 @@
   "title": "Harold in English",
   "sections": {
     "about":{
-      "title": "About me"
+      "title": "About me",
+      "content": {
+        "paragraph-1": "I am a web and mobile frontend developer passionate about the development of truly useful and enjoyable technological solutions for end users.",
+        "paragraph-2": "At a professional level I have great interest and knowledge focused on the development of web and mobile applications, focused on always offering a pleasant and attractive experience to end users who interact with the product.",
+        "paragraph-3": "Thus, the technical and structural knowledge provided by Systems and Computing Engineering, together with the aesthetic and experimental knowledge provided by Design, allow for truly innovate ideas to materialize."
+      }
     },
     "projects":{
       "title": "Projects"

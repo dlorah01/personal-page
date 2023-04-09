@@ -20,11 +20,11 @@
   </div>
   <div class="word-document-wrapper">
     <div class="word-document" [ngClass]="[defaultFont.style, defaultSize.name]" contenteditable="true">
-      <div class="title" id="title">{{title}}</div>
+      <div class="title" id="title">{{title | translate}}</div>
       <div class="content" *ngIf="content">
         <ng-container *ngFor="let paragraph of content; let i = index">
           <p class="content-paragraph" id="paragraph-{{i}}">
-            {{paragraph}}
+            {{paragraph | translate}}
           </p>
         </ng-container>
       </div>

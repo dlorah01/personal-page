@@ -2,7 +2,7 @@
   <div class="wallpaper-container">
     <div class="wallpaper-wrapper">
       <div class="circle-2"></div>
-      <div class="grid">
+      <div class="grid" [@inOutAnimation]="{value: ':enter', params: {delay: 0.6}}">
         <div class="vertical">
           <div class="line"></div>
           <div class="line"></div>
@@ -63,10 +63,10 @@
       </div>
     </div>
     <div class="desktop-wrapper">
-      <app-topbar class="topbar" (emitValue)="updateTheme($event)" (emitLanguageValue)="updateLanguage($event)">
+      <app-topbar class="topbar" (emitValue)="updateTheme($event)" (emitLanguageValue)="updateLanguage($event)" [@inOutAnimation]="{value: ':enter', params: {delay: 0.2}}">
       </app-topbar>
       <div class="desktop">
-        <div class="desktop-items-container" *ngIf="desktopItems">
+        <div class="desktop-items-container" *ngIf="desktopItems" [@inOutAnimation]="{value: ':enter', params: {delay: 0.4}}">
           <ng-container *ngFor="let item of desktopItems; let i = index">
             <app-desktop-item
               [name]="item.name"
@@ -77,7 +77,7 @@
             </app-desktop-item>
           </ng-container>
         </div>
-        <div class="window-overlay" *ngIf="this.router.url !== '/main'">
+        <div class="window-overlay" *ngIf="this.router.url !== '/main'" [@inOutAnimation]>
           <app-window
             class="window"
             [ngClass]="{'maximized': maximizeWindow}"
