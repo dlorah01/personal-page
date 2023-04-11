@@ -1,33 +1,123 @@
 <div class="word-container">
   <div class="word-settings">
-    {{ 'title' | translate}}
     <div class="settings-item select-item font-type-select">
-      <select #fontType (change)="changeFontType(fontType)">
-        <ng-container *ngFor="let item of fonts; let i = index">
-          <option [selected]="i === 0" [value]="item.name">{{item.name}}</option>
-        </ng-container>
-      </select>
-      <i></i>
+      <app-select id="font-type-select"
+        (change)="changeFontType($event)"
+        [blurred]="true"
+        >
+          <ng-container *ngFor="let item of fonts" class="select-option">
+            <app-select-option value="{{item.name}}">
+              <div class="text-container" class="{{item.style}}">
+               {{item.name}}
+              </div>
+            </app-select-option>
+          </ng-container>
+        </app-select>
     </div>
     <div class="settings-item select-item font-size-select">
-      <select #fontSize (change)="changeFontSize(fontSize)">
-        <ng-container *ngFor="let item of sizes; let i = index">
-          <option [selected]="i === 2" [value]="item.size">{{item.size}}</option>
-        </ng-container>
-      </select>
-      <i></i>
+      <app-select id="font-size-select"
+        (change)="changeFontSize($event)"
+        [defaultSelection]="1"
+        [blurred]="true"
+        >
+          <ng-container *ngFor="let item of sizes" class="select-option">
+            <app-select-option value="{{item.size}}" >
+              <div class="text-container" class="{{item.size}}">
+               {{item.size}}
+              </div>
+            </app-select-option>
+          </ng-container>
+        </app-select>
     </div>
-  </div>
-  <div class="word-document-wrapper">
-    <div class="word-document" [ngClass]="[defaultFont.style, defaultSize.name]" contenteditable="true">
-      <div class="title" id="title">{{title | translate}}</div>
-      <div class="content" *ngIf="content">
-        <ng-container *ngFor="let paragraph of content; let i = index">
-          <p class="content-paragraph" id="paragraph-{{i}}">
-            {{paragraph | translate}}
-          </p>
-        </ng-container>
+
+    <div class="settings-item alignment-buttons">
+      <div class="alignment-button alignment-left" [ngClass]="{'active': textAlignment === 'left'}" (click)="changeAlignment('left')">
+        <div class="line-1"></div>
+        <div class="line-2"></div>
+        <div class="line-3"></div>
+        <div class="line-4"></div>
+      </div>
+      <div class="alignment-button alignment-center" [ngClass]="{'active': textAlignment === 'center'}" (click)="changeAlignment('center')">
+        <div class="line-1"></div>
+        <div class="line-2"></div>
+        <div class="line-3"></div>
+        <div class="line-4"></div>
+      </div>
+      <div class="alignment-button alignment-right" [ngClass]="{'active': textAlignment === 'right'}" (click)="changeAlignment('right')">
+        <div class="line-1"></div>
+        <div class="line-2"></div>
+        <div class="line-3"></div>
+        <div class="line-4"></div>
+      </div>
+      <div class="alignment-button alignment-justify" [ngClass]="{'active': textAlignment === 'justify'}" (click)="changeAlignment('justify')">
+        <div class="line-1"></div>
+        <div class="line-2"></div>
+        <div class="line-3"></div>
+        <div class="line-4"></div>
       </div>
     </div>
+
+  </div>
+  <div class="word-document-wrapper" waIntersectionObserver waIntersectionThreshold="0.5">
+    <ng-container *ngIf="content.length">
+      <ng-container *ngFor="let item of content; let i = index">
+        <div class="word-document"  id="page-{{i}}" (waIntersectionObservee)="onIntersection($event)" [ngClass]="[defaultFont.style, defaultSize.name, textAlignment]" contenteditable="true" (input)="onNameChange($event.target, i)">
+          <ng-container *ngIf="item.subtitle === 'sections.about.profile'">
+            <div class="title">{{title | translate}}</div>
+            <div class="image-container">
+              <div class="image-wrapper">
+                <img src="../../../../assets/images/Foto.jpg" alt="personal photo">
+              </div>
+            </div>
+          </ng-container>
+          <div class="subtitle" id="subtitle">{{item.subtitle | translate}}</div>
+          <div class="content" *ngIf="item.content">
+            <ng-container *ngIf="item.subtitle !== 'sections.about.profile'; else default">
+              <ng-container *ngFor="let degree of item.content; let i = index">
+                <div class="content-paragraph" id="paragraph-{{i}}">
+                  <div class="name">
+                    {{degree[0] | translate}}
+                  </div>
+                  <div class="bacherol">
+                    {{degree[1] | translate}}
+                  </div>
+                  <div class="university">
+                    {{degree[2] | translate}}
+                  </div>
+                  <div class="dates">
+                    {{degree[3] | translate}} - {{degree[4] | translate}}
+                  </div>
+                  {{'sections.about.graduation' | translate}}: {{degree[5] | translate}}
+                </div>
+              </ng-container>
+            </ng-container>
+            <ng-template #default>
+              <ng-container *ngFor="let paragraph of item.content; let i = index">
+                <div class="content-paragraph" id="paragraph-{{i}}">
+                  {{paragraph | translate}}
+                </div>
+              </ng-container>
+            </ng-template>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+  </div>
+  <div class="word-settings-2">
+    <div class="word-settings-2-container">
+      <div class="word-settings-2-item">
+       <span class="bold-content">{{'sections.about.page' | translate}}</span>: {{this.currentPage}} {{'sections.about.of' | translate}}  {{this.pages}}
+      </div>
+      <div class="items-wrapper">
+        <div class="word-settings-2-item">
+          <span class="bold-content">{{'sections.about.words' | translate}}</span>: {{this.words[0] + this.words[1]}}
+         </div>
+         <div class="word-settings-2-item">
+          <span class="bold-content">{{'sections.about.characters' | translate}}</span>: {{this.characters[0] + this.characters[1]}}
+         </div>
+      </div>
+    </div>
+
   </div>
 </div>

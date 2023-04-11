@@ -1,7 +1,7 @@
 <nav class="menu-container">
   <div class="menu-inner-container" *ngIf="content">
     <ng-container *ngFor="let item of content">
-      <div class="menu-item"> {{ item }} </div>
+      <div class="menu-item" (click)="downloadItem()"> {{ item | translate }} </div>
     </ng-container>
   </div>
 </nav>

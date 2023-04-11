@@ -14,24 +14,22 @@ export class WindowComponent {
   @Output() onSizeChange:  EventEmitter<boolean> = new EventEmitter()
 
   constructor(public router: Router) {
-    console.log('this.route. is', this.router.url)
     const url = this.router.url.split('/')
     const lastUrl = url[url.length - 1]
     switch(lastUrl) {
       case 'about': {
-        this.name = 'About me'
-        this.program = 'Word'
+        this.name = 'sections.about.title'
+        this.program = 'sections.about.program'
+        break
+      }
+      case 'projects': {
+        this.name = 'sections.projects.title'
+        this.program = 'sections.projects.program'
         break
       }
       case 'contact': {
-        this.name = 'Email me'
-        this.program = 'Mail'
-        break
-      }
-
-      case 'projects': {
-        this.name = 'Projects'
-        this.program = 'Folder'
+        this.name = 'sections.email.title'
+        this.program = 'sections.email.program'
         break
       }
     }

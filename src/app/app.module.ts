@@ -12,7 +12,8 @@ import es from '@angular/common/locales/es';
 import en from '@angular/common/locales/en';
 import { PipesModule } from './pipes/pipes.module';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VisibilityDirective } from './directives/visibility.directive'
 
 registerLocaleData(en);
 registerLocaleData(es);

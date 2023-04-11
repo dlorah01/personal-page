@@ -6,10 +6,10 @@
 
   .select-container
     width: 100%
-    // border: 1px solid gray
+    border: 1px solid transparent
     border-radius: 5px
     padding: 10px 5px
-    font-size: 16px
+    font-size: 12px
     font-weight: 400
     cursor: pointer
     line-height: 1.1
@@ -21,23 +21,44 @@
     // background-color: var(--color-5)
     color: var(--base-font)
     border: 1px solid transparent
+    transition: all 0.2s ease
+
+    &.blurred
+      border: 1px solid var(--base-font)
 
     &:hover, &:focus
       // border-color: var(--base-hover)
       background-color: rgba(var(--base-hover) , 0.1)
-      -webkit-backdrop-filter: blur(10px)
-      backdrop-filter: blur(10px)
+
+    &::ng-deep
+      .text-container
+        &.montserrat
+          font-family: 'Montserrat', sans-serif
+
+        &.indie
+          font-family: 'Indie Flower', cursive
+
+        &.courier
+          font-family: 'Courier Prime', monospace
+
+        &.roboto
+          font-family: 'Roboto', sans-serif
 
 .custom-dropdown-menu
+  margin-top: 10px
   display: block
   width: 100%
   border-radius: 5px
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24)
   background-color: rgba(var(--base-hover) , 0.1)
+  color: var(--base-font)
   -webkit-backdrop-filter: blur(10px)
   backdrop-filter: blur(10px)
   max-height: 31.5rem
   overflow: hidden
+
+  &.blurred
+    background-color: rgba(var(--base-blur), 0.5)
 
   .dropdown-options-container
     width: 100%
@@ -57,5 +78,10 @@
         width: 100%
         height: 100%
 
+    .text-container
+      width: 100%
+      padding: 10px
+
 .overlay-container
   user-select: none
+  transition: all 0.2s ease

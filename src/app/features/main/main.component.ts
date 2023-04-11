@@ -38,6 +38,7 @@ export class MainComponent {
   maximizeWindow: boolean = false
   currentItem!: DesktopItem
   currentTheme: string = 'theme-1'
+  currentItemMenu: string[] = []
 
   constructor(public router: Router, private route: ActivatedRoute, private translate: TranslateService, @Inject(DOCUMENT) private document: Document) {
     this.desktopItems = [
@@ -45,22 +46,26 @@ export class MainComponent {
         name: "sections.about.title",
         type: 'doc',
         route: '/main/about',
-        program: 'Word'
+        menu: ['sections.about.menu']
       },
       {
         name: 'sections.projects.title',
         type: 'app',
         route: '/main/projects',
-        program: 'Folder'
+        menu: ['sections.projects.menu']
       },
       {
-        name: 'sections.projects.title',
+        name: 'sections.email.title',
         type: 'iml',
         route: '/main/contact',
-        program: 'Mail'
+        menu: ['sections.email.menu']
       },
     ]
     this.document.body.classList.add(this.currentTheme)
+    if (this.activeMenu()) {
+      const index = this.desktopItems.findIndex((x) => x.route === this.router.url)
+      this.updateSelection(index)
+    }
   }
 
   closeWindow(): void {
@@ -74,6 +79,7 @@ export class MainComponent {
 
   updateSelection(index: number): void {
     this.currentItem = this.desktopItems[index]
+    this.currentItemMenu = this.currentItem.menu
   }
 
   updateTheme(selection: string) {
@@ -82,7 +88,10 @@ export class MainComponent {
   }
 
   updateLanguage(selection: any) {
-    console.log('selecion', selection)
     this.translate.use(selection)
+  }
+
+  activeMenu(): boolean {
+    return this.router.url !== '/main' ? true : false
   }
 }

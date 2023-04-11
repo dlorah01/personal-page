@@ -63,7 +63,13 @@
       </div>
     </div>
     <div class="desktop-wrapper">
-      <app-topbar class="topbar" (emitValue)="updateTheme($event)" (emitLanguageValue)="updateLanguage($event)" [@inOutAnimation]="{value: ':enter', params: {delay: 0.2}}">
+      <app-topbar class="topbar"
+        (emitValue)="updateTheme($event)"
+        (emitLanguageValue)="updateLanguage($event)"
+        [@inOutAnimation]="{value: ':enter', params: {delay: 0.2}}"
+        [menu]="activeMenu()"
+        [menuContent]=" currentItemMenu"
+        >
       </app-topbar>
       <div class="desktop">
         <div class="desktop-items-container" *ngIf="desktopItems" [@inOutAnimation]="{value: ':enter', params: {delay: 0.4}}">
@@ -73,11 +79,12 @@
               [type]="item.type"
               [routerLink]="[item.route]"
               (click)="updateSelection(i)"
+              [currentTheme]="currentTheme"
             >
             </app-desktop-item>
           </ng-container>
         </div>
-        <div class="window-overlay" *ngIf="this.router.url !== '/main'" [@inOutAnimation]>
+        <div class="window-overlay" *ngIf="this.router.url !== '/main'" [@inOutAnimation]="{value: ':enter', params: {delay: 0.1}}">
           <app-window
             class="window"
             [ngClass]="{'maximized': maximizeWindow}"

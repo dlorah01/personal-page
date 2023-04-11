@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { interval, Observable, Subscription } from 'rxjs';
 
 @Component({
@@ -12,6 +12,8 @@ export class TopbarComponent implements OnInit, OnDestroy{
   label = "name"
   @Output() emitValue = new EventEmitter<string>();
   @Output() emitLanguageValue = new EventEmitter<string>();
+  @Input() menu: boolean = false
+  @Input() menuContent!: string[]
 
   options = [
     {name:'Theme 1',value: 'theme-1'},
@@ -38,14 +40,8 @@ export class TopbarComponent implements OnInit, OnDestroy{
     })
   }
 
-  update(selection: any): void {
-    console.log('selection', selection.selected.value)
+  updateSelection(selection: any): void {
     this.emitValue.emit(selection.selected.value)
-  }
-
-  updateSelection(selection: string): void {
-    console.log('selection', selection)
-    this.emitValue.emit(selection)
   }
 
   updateLanguage(selection: any): void {

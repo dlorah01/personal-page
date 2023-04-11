@@ -18,6 +18,8 @@ import { PortalModule } from '@angular/cdk/portal';
 import { A11yModule } from '@angular/cdk/a11y'
 import { TranslateModule } from '@ngx-translate/core';
 import { PipesModule } from '../pipes/pipes.module';
+import { VisibilityDirective } from '../directives/visibility.directive';
+import { IntersectionObserverModule } from '@ng-web-apis/intersection-observer';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { PipesModule } from '../pipes/pipes.module';
     FolderComponent,
     SelectComponent,
     SelectSimplifiedComponent,
-    SelectOptionComponent
+    SelectOptionComponent,
+    VisibilityDirective
   ],
   imports: [
     CommonModule,
@@ -41,7 +44,8 @@ import { PipesModule } from '../pipes/pipes.module';
     PortalModule,
     A11yModule,
     TranslateModule,
-    PipesModule
+    PipesModule,
+    IntersectionObserverModule
   ],
   exports: [
     TopbarComponent,

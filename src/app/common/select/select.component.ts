@@ -57,6 +57,8 @@ export class SelectComponent implements OnInit, ControlValueAccessor, Validator,
 {
   @Input('id') public inputId: string = '';
   @Input() public placeholder: string = '';
+  @Input() defaultSelection: number = 0
+  @Input() blurred: boolean = false
 
   @Output() readonly change = new EventEmitter<SelectEvent>();
 
@@ -109,8 +111,6 @@ export class SelectComponent implements OnInit, ControlValueAccessor, Validator,
   }
 
   public ngAfterContentInit(): void {
-    console.log('options', this.options)
-    console.log('rewrite value', this.rewriteValue)
     if (this.rewriteValue !== undefined) {
       this.writeValue(this.rewriteValue);
     }
@@ -119,13 +119,13 @@ export class SelectComponent implements OnInit, ControlValueAccessor, Validator,
       .withHorizontalOrientation('ltr')
       .withVerticalOrientation()
       .withWrap();
-      console.log('aqui ', this.options.first)
   }
 
   ngAfterViewInit(): void {
-    if (this.options && this.options.first) {
+    const element = this.options.toArray()[this.defaultSelection]
+    if (this.options && this.options.length) {
       setTimeout(() => {
-        this.selectOption(this.options.first)
+        this.selectOption(element)
       });
     }
   }
@@ -164,6 +164,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor, Validator,
     this.hide();
     if (this.selectedOption !== option) {
       this.selectedOption = option;
+      this.selectedOption.setActiveStyles()
       this.onChange();
       this.updateDisplayText();
     }
@@ -184,7 +185,6 @@ export class SelectComponent implements OnInit, ControlValueAccessor, Validator,
   }
 
   public onKeyDown(event: KeyboardEvent): void {
-    console.log('jjsjjs')
     if (this.showing) {
       this.handleVisibleDropdown(event);
     } else {
@@ -193,7 +193,6 @@ export class SelectComponent implements OnInit, ControlValueAccessor, Validator,
   }
 
   private handleVisibleDropdown(event: KeyboardEvent): void {
-    console.log('dsadas', event)
     switch (event.key) {
       // Enter and space cause the currently-highlighted item to become the active item
       case 'Enter':
@@ -277,12 +276,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor, Validator,
     ];
   }
 
-  keys(event: any) {
-    console.log('ev', event)
-  }
-
   public showDropdown(): void {
-    console.log('click')
     setTimeout(() => {
       this.select.nativeElement.focus()
     });
@@ -291,7 +285,6 @@ export class SelectComponent implements OnInit, ControlValueAccessor, Validator,
     this.syncWidth();
     this.overlayRef.backdropClick().subscribe(() => this.hide());
     this.showing = true;
-    console.log('valor show', this.showing)
   }
 
   private hide(): void {

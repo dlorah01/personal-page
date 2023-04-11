@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Font } from './models/font';
-import { NgModel } from '@angular/forms';
 import { Size } from './models/size';
 
 @Component({
@@ -11,13 +10,20 @@ import { Size } from './models/size';
 export class WordComponent {
 
   @Input() title!: string
-  @Input() content!: string[]
+  @Input() content!: any[]
 
   fonts !: Font[]
   defaultFont!: Font
 
   sizes!: Size[]
   defaultSize!: Size
+
+  textAlignment = "left"
+
+  characters: number [] = [599, 268]
+  words: number[] = [90, 39]
+  pages: number = 2
+  currentPage: number = 1
 
   constructor() {
     this.fonts = [
@@ -65,10 +71,30 @@ export class WordComponent {
     this.defaultSize = this.sizes[2]
   }
 
-  changeFontSize(fontSize: HTMLSelectElement): void {
-    this.defaultSize = this.sizes.find((x) => x.size === fontSize.value) || this.sizes[2]
+  changeFontSize(fontSize: any): void {
+    this.defaultSize = this.sizes.find((x) => x.size === fontSize.selected.value) || this.sizes[2]
   }
-  changeFontType(fontType: HTMLSelectElement): void {
-    this.defaultFont = this.fonts.find((x) => x.name === fontType.value) || this.fonts[0]
+
+  changeFontType(fontType: any): void {
+    this.defaultFont = this.fonts.find((x) => x.name === fontType.selected.value) || this.fonts[0]
+  }
+
+  changeAlignment(alignment: string): void {
+    this.textAlignment = alignment
+  }
+
+  onNameChange(val: any, index: number) {
+    this.characters[index] = val.textContent.length
+    this.words[index] = val.textContent.split(' ').length
+  }
+
+
+  onIntersection(event: any): void {
+    if (event[0].target.id === 'page-0' && event[0].isIntersecting === true) {
+      this.currentPage = 1
+    }
+    else {
+      this.currentPage = 2
+    }
   }
 }

@@ -5,15 +5,33 @@
   justify-content: center
   padding: 10px 0
   cursor: pointer
-  font-size: 16px
+  font-size: 12px
   user-select: none
   border-radius: 5px
+  color: black
+  text-align: center
+  transition: all 0.2s ease
 
   span.span-container
     display: flex
     width: 100%
     align-items: center
     justify-content: center
+    color: var(--base-font)
+
+    &::ng-deep
+      .text-container
+        &.montserrat
+          font-family: 'Montserrat', sans-serif
+
+        &.indie
+          font-family: 'Indie Flower', cursive
+
+        &.courier
+          font-family: 'Courier Prime', monospace
+
+        &.roboto
+          font-family: 'Roboto', sans-serif
 
     &::ng-deep
       .img-container
@@ -28,6 +46,9 @@
           width: 100%
           height: 100%
 
-  &:hover
+  &:hover, &:active
     outline: none
     background-color: var(--base-active)
+
+    span.span-container
+      color: var(--base-font-inverse)

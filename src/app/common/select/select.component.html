@@ -4,7 +4,7 @@
     role="listbox"
     tabindex="0"
     class="select-container"
-    [ngClass]=""
+    [ngClass]="{'blurred': blurred}"
     (click)="showDropdown()"
     (keydown)="onKeyDown($event)"
     (blur)="onTouched()"
@@ -12,7 +12,7 @@
     [innerHTML]="displayText"
   ></div>
   <ng-template cdk-portal #overlayTemplate="cdkPortal" class="dropdown">
-    <div class="custom-dropdown-menu">
+    <div class="custom-dropdown-menu" [ngClass]="{'blurred': blurred}">
       <div class="dropdown-options-container" (keydown)="onKeyDown($event)">
         <ng-content></ng-content>
       </div>

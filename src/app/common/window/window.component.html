@@ -6,7 +6,7 @@
       <a class="control-button minimize-button" (click)="minimizeWindow()" *ngIf="maximize"></a>
     </div>
     <div class="window-name">
-      {{name}} - {{program}}
+      {{this.name | translate}} - {{this.program | translate}}
     </div>
   </div>
   <div class="window-content-container">

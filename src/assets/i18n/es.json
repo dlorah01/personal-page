@@ -1,19 +1,54 @@
 {
   "title": "Harold en Español",
+  "cv": "HV",
   "sections": {
     "about":{
       "title": "Acerca de mi",
+      "profile": "Perfil",
       "content": {
-        "paragraph-1": "Soy un desarrollador frontend web y móvil apasionado por el desarrol- lo de soluciones tecnológicas realmente útiles y agradables para los usuarios finales.",
+        "paragraph-1": "Soy un desarrollador frontend web y móvil apasionado por el desarrollo de soluciones tecnológicas realmente útiles y agradables para los usuarios finales.",
         "paragraph-2": "A nivel profesional tengo gran interés y conocimientos enfocados al desarrollo de aplicaciones web y móviles, enfocados a ofrecer siempre una experiencia agradable y atractiva a los usuarios finales que interactúan con el producto.",
         "paragraph-3": "Así, los conocimientos técnicos y estructurales que aporta la Ingeniería de Sistemas y Computación, junto con los conocimientos estéticos y experimentales que aporta el Diseño, permiten materializar ideas realmente innovadoras."
-      }
+      },
+      "education": "Educación",
+      "degrees": {
+        "degree-1":{
+          "name": "Ingeniería de Sistemas y Computación",
+          "bacherol": "Ingeniero de Sistemas y Computación",
+          "unversity": "Universidad de los Andes",
+          "date-start": "Enero 2010",
+          "date-end": "Diciembre 2016",
+          "date-graduation": "Marzo 2017"
+        },
+        "degree-2":{
+          "name": "Diseño",
+          "bacherol": "Diseñador",
+          "unversity": "Universidad de los Andes",
+          "date-start": "Enero 2013",
+          "date-end": "Julio 2019",
+          "date-graduation": "Abril 2020"
+        }
+      },
+      "academy": "Unviersidad",
+      "start": "Inicio",
+      "end": "Fin",
+      "graduation": "Graduación",
+      "words": "Palabras",
+      "characters": "Caracteres",
+      "page": "Página",
+      "of": "de",
+      "program": "Editor de Docs",
+      "menu":"Exportar"
     },
     "projects":{
-      "title": "Proyectos"
+      "title": "Proyectos",
+      "program": "Visualizador de Carpetas",
+      "menu":"Exportar"
     },
     "email":{
-      "title": "Contácteme"
+      "title": "Contácteme",
+      "program": "Emisor de Correo",
+      "menu": "Exportar"
     }
   }
 }
