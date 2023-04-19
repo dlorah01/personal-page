@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-window',
@@ -14,26 +14,34 @@ export class WindowComponent {
   @Output() onSizeChange:  EventEmitter<boolean> = new EventEmitter()
 
   constructor(public router: Router) {
+    this.router.events.subscribe((data) => {
+      let value = data
+     console.log('value', value)
+    })
+    console.log('la ruta', this.router.url)
     const url = this.router.url.split('/')
-    const lastUrl = url[url.length - 1]
-    switch(lastUrl) {
-      case 'about': {
-        this.name = 'sections.about.title'
-        this.program = 'sections.about.program'
-        break
+    const lastUrl = url[2]
+
+    if (lastUrl === 'about') {
+      this.name = 'sections.about.title'
+      this.program = 'sections.about.program'
+    }
+    else if (lastUrl === 'projects') {
+      if (url[3]) {
+        this.name = 'sections.projects.detail-title'
+        this.program = 'sections.projects.detail-program'
       }
-      case 'projects': {
+      else {
         this.name = 'sections.projects.title'
         this.program = 'sections.projects.program'
-        break
-      }
-      case 'contact': {
-        this.name = 'sections.email.title'
-        this.program = 'sections.email.program'
-        break
       }
     }
+    else if (lastUrl === 'contact') {
+      this.name = 'sections.email.title'
+      this.program = 'sections.email.program'
+    }
   }
+
 
   closeWindow(): void {
     this.onClose.emit()

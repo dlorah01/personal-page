@@ -1,1 +1,27 @@
-<p>folder works!</p>
+<div class="folder-container">
+  <div class="folder-settings">
+    <div class="settings-row">
+      <div class="settings-item settings-name" (click)="sortItems('name')">
+        {{'sections.projects.name' | translate}}
+      </div>
+      <div class="settings-item settings-year" (click)="sortItems('year')">
+        {{'sections.projects.year' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="folder-items-wrapper">
+    <ng-container *ngIf="content.length">
+      <ng-container *ngFor="let item of content; let i = index">
+        <div class="item-row" (click)="updateSelection(i)">
+          <div class="item-property item-name">
+            {{item.name | translate}}
+          </div>
+          <div class="item-property item-year">
+            {{item.year | translate}}
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+  </div>
+</div>

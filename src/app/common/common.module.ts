@@ -53,6 +53,7 @@ import { IntersectionObserverModule } from '@ng-web-apis/intersection-observer';
     DesktopItemComponent,
     WindowComponent,
     WordComponent,
+    FolderComponent,
     SelectSimplifiedComponent,
     SelectComponent,
     SelectOptionComponent,

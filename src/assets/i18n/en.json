@@ -43,7 +43,31 @@
     "projects":{
       "title": "Projects",
       "program": "Folder Viewer",
-      "menu":"Export"
+      "menu":"Export",
+      "detail-title": "Project Detail",
+      "detail-program": "Code editor",
+      "content": {
+        "project-1": {
+          "name": "Data Visualizer",
+          "url": "https://www.google.com",
+          "client": "Personal Project",
+          "year": "2023"
+        },
+        "project-2": {
+          "name": "League of Legends",
+          "url": "https://www.google.com",
+          "client": "Personal Project",
+          "year": "2019"
+        },
+        "project-3": {
+          "name": "Sorting",
+          "url": "https://www.google.com",
+          "client": "Personal Project",
+          "year": "2012"
+        }
+      },
+      "name": "Name",
+      "year": "Year"
     },
     "email":{
       "title": "Contact me",

@@ -1,1 +1,14 @@
-<p>projects works!</p>
+<div class="projects-container">
+  <app-folder [title]="title" [content]="content" (emitSelection)="updateSelection($event)"></app-folder>
+</div>
+
+<div class="window-overlay" *ngIf="this.router.url === '/main/projects/project/'+currentRoute" [@inOutAnimation]="{value: ':enter', params: {delay: 0.1}}">
+  <app-window
+    class="window"
+    [ngClass]="{'maximized': maximizeWindow}"
+    (onClose)="closeWindow()"
+    (onSizeChange)="resizeWindow($event)"
+  >
+    <router-outlet></router-outlet>
+  </app-window>
+</div>

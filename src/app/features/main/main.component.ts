@@ -46,24 +46,28 @@ export class MainComponent {
         name: "sections.about.title",
         type: 'doc',
         route: '/main/about',
+        shortcut: 'about',
         menu: ['sections.about.menu']
       },
       {
         name: 'sections.projects.title',
         type: 'app',
         route: '/main/projects',
+        shortcut: 'projects',
         menu: ['sections.projects.menu']
       },
       {
         name: 'sections.email.title',
         type: 'iml',
         route: '/main/contact',
+        shortcut: 'contact',
         menu: ['sections.email.menu']
       },
     ]
     this.document.body.classList.add(this.currentTheme)
     if (this.activeMenu()) {
-      const index = this.desktopItems.findIndex((x) => x.route === this.router.url)
+      console.log(this.router.url.split('/'))
+      const index = this.desktopItems.findIndex((x) => x.shortcut === this.router.url.split('/')[2])
       this.updateSelection(index)
     }
   }

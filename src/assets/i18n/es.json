@@ -43,7 +43,31 @@
     "projects":{
       "title": "Proyectos",
       "program": "Visualizador de Carpetas",
-      "menu":"Exportar"
+      "menu":"Exportar",
+      "detail-title": "Detalle de Proyecto",
+      "detail-program": "Editor de Código",
+      "content": {
+        "project-1": {
+          "name": "Data Visualizer",
+          "url": "https://www.google.com",
+          "client": "Proyecto Personal",
+          "year": "2023"
+        },
+        "project-2": {
+          "name": "League of Legends",
+          "url": "https://www.google.com",
+          "client": "Proyecto Personal",
+          "year": "2019"
+        },
+        "project-3": {
+          "name": "Sorting",
+          "url": "https://www.google.com",
+          "client": "Proyecto Personal",
+          "year": "2012"
+        }
+      },
+      "name": "Nombre",
+      "year": "Año"
     },
     "email":{
       "title": "Contácteme",

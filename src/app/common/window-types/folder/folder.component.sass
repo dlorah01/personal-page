@@ -1,0 +1,86 @@
+.folder-container
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: flex-start
+  background-color: var(--base-background-inner)
+  font-size: 12px
+
+  .folder-settings
+    width: 100%
+    position: sticky
+    top: 0
+    background-color: var(--base-background-middle)
+    box-shadow: rgba(var(--color-black-2-rgb), 0.9) 0px 8px 24px
+    border: 1px solid var(--color-2)
+    z-index: 1
+    color: var(--base-font)
+    margin-bottom: 20px
+
+    .settings-row
+      width: 100%
+      padding: 10px
+      display: flex
+      flex-direction: row
+
+      .settings-item
+        border: 1px solid transparent
+        text-align: left
+        cursor: pointer
+        padding: 0 10px
+        transition: all 0.2s ease
+        font-weight: 500
+
+        &:hover
+          background-color: rgba(var(--base-hover) , 0.1)
+
+        &.settings-name
+          flex: 3
+
+        &.settings-year
+          flex: 1
+          border-left: 1px solid rgba(var(--base-hover) , 0.5)
+
+  .folder-items-wrapper
+    flex: 1
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-start
+    padding: 0px 10px
+
+    .item-row
+      background-color: transparent
+      width: 100%
+      padding: 10px
+      display: flex
+      color: var(--base-font)
+      border-radius: 10px
+      margin-bottom: 5px
+      transition: all 0.2s ease
+
+      &:last-child
+        margin-bottom: 0
+
+      &:hover
+        background-color: var(--base-background-outer)
+
+      &:nth-child(odd)
+        background-color: var(--base-background-middle)
+
+        &:hover
+          background-color: var(--base-background-outer)
+
+      .item-property
+        border: 1px solid transparent
+        text-align: left
+        cursor: pointer
+
+        &.item-name
+          flex: 3
+
+        &.item-year
+          flex: 1
