@@ -1,9 +1,10 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { DesktopItem } from '../models/desktop-item';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DOCUMENT } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -33,52 +34,39 @@ import { trigger, transition, style, animate } from '@angular/animations';
     )
   ]
 })
-export class MainComponent {
-  desktopItems !: DesktopItem[]
-  maximizeWindow: boolean = false
+export class MainComponent implements OnInit, OnDestroy {
+  desktopItems: DesktopItem[] = []
   currentItem!: DesktopItem
   currentTheme: string = 'theme-1'
   currentItemMenu: string[] = []
+  itemsSubscription!: Subscription
 
   constructor(public router: Router, private route: ActivatedRoute, private translate: TranslateService, @Inject(DOCUMENT) private document: Document) {
-    this.desktopItems = [
-      {
-        name: "sections.about.title",
-        type: 'doc',
-        route: '/main/about',
-        shortcut: 'about',
-        menu: ['sections.about.menu']
-      },
-      {
-        name: 'sections.projects.title',
-        type: 'app',
-        route: '/main/projects',
-        shortcut: 'projects',
-        menu: ['sections.projects.menu']
-      },
-      {
-        name: 'sections.email.title',
-        type: 'iml',
-        route: '/main/contact',
-        shortcut: 'contact',
-        menu: ['sections.email.menu']
-      },
-    ]
+    this.itemsSubscription = this.translate.get('sections').subscribe((data: any) => {
+      for (let key in data) {
+        let desktopItem = {
+          name: `sections.${key}.title`,
+          type: data[key].type,
+          route: data[key].route,
+          shortcut: data[key].shortcut,
+          menu: [`sections.${key}.menu`]
+        }
+        this.desktopItems.push(desktopItem)
+      }
+      if (this.activeMenu()) {
+        const index = this.desktopItems.findIndex((x) => x.shortcut === this.router.url.split('/')[2])
+        console.log('dsds', index)
+        this.updateSelection(index)
+      }
+    })
+  }
+
+  ngOnInit(): void {
     this.document.body.classList.add(this.currentTheme)
-    if (this.activeMenu()) {
-      console.log(this.router.url.split('/'))
-      const index = this.desktopItems.findIndex((x) => x.shortcut === this.router.url.split('/')[2])
-      this.updateSelection(index)
-    }
   }
 
-  closeWindow(): void {
-    this.maximizeWindow = false
-    this.router.navigate([''], {relativeTo: this.route})
-  }
-
-  resizeWindow(value: boolean): void {
-    this.maximizeWindow = value
+  ngOnDestroy(): void {
+    this.itemsSubscription.unsubscribe()
   }
 
   updateSelection(index: number): void {

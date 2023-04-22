@@ -7,10 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: ProjectsComponent,
-  },
-  {
-    path: 'project/:id',
-    component: ProjectDetailComponent
+    children: [
+      {
+        path: 'project/:id',
+        component: ProjectDetailComponent,
+      },
+    ]
   },
   { path: '**', redirectTo: '' }
 ];

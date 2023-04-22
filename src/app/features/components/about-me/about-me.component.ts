@@ -1,15 +1,40 @@
+import { trigger, transition, style, animate } from '@angular/animations';
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-about-me',
   templateUrl: './about-me.component.html',
-  styleUrls: ['./about-me.component.sass']
+  styleUrls: ['./about-me.component.sass'],
+  animations: [
+    trigger(
+      'inOutAnimation',
+      [
+        transition(
+          ':enter',
+          [
+            style({ opacity: 0 }),
+            animate('0.2s {{delay}}s ease-out',
+                    style({ opacity: 1}))
+          ], {params: {delay: '0'}}
+        ),
+        transition(
+          ':leave',
+          [
+            style({ opacity: 1 }),
+            animate('0.2s ease-in',
+                    style({ opacity: 0 }))
+          ]
+        )
+      ]
+    )
+  ]
 })
 export class AboutMeComponent {
   title !: string
   content!: any[]
 
-  constructor() {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.title = 'sections.about.title'
     this.content = [
       {
@@ -42,5 +67,9 @@ export class AboutMeComponent {
         ]
       }
     ]
+  }
+
+  closeWindow(): void {
+    this.router.navigate([''], {relativeTo: this.route})
   }
 }

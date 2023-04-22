@@ -1,10 +1,34 @@
+import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-window',
   templateUrl: './window.component.html',
-  styleUrls: ['./window.component.sass']
+  styleUrls: ['./window.component.sass'],
+  animations: [
+    trigger(
+      'inOutAnimation',
+      [
+        transition(
+          ':enter',
+          [
+            style({ opacity: 0 }),
+            animate('0.2s {{delay}}s ease-out',
+                    style({ opacity: 1}))
+          ], {params: {delay: '0'}}
+        ),
+        transition(
+          ':leave',
+          [
+            style({ opacity: 1 }),
+            animate('0.2s ease-in',
+                    style({ opacity: 0 }))
+          ]
+        )
+      ]
+    )
+  ]
 })
 export class WindowComponent {
   maximize: boolean = false
@@ -13,7 +37,7 @@ export class WindowComponent {
   @Output() onClose:  EventEmitter<void> = new EventEmitter()
   @Output() onSizeChange:  EventEmitter<boolean> = new EventEmitter()
 
-  constructor(public router: Router) {
+  constructor(public router: Router, private route: ActivatedRoute) {
     this.router.events.subscribe((data) => {
       let value = data
      console.log('value', value)
@@ -44,7 +68,8 @@ export class WindowComponent {
 
 
   closeWindow(): void {
-    this.onClose.emit()
+    // this.onClose.emit()
+    this.router.navigate(['..'], {relativeTo: this.route})
   }
 
   maximizeWindow(): void {

@@ -15,7 +15,7 @@ export class DesktopItemComponent {
 
   constructor() {}
 
-  get imageSrc() {
+  get imageSrc(): string {
     return `../../../../assets/icons/icon-${this.type}-${this.currentTheme}.svg`;
   }
 }

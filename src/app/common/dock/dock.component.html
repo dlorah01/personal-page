@@ -1,1 +1,11 @@
-<p>dock works!</p>
+<div class="dock-container">
+  <div class="dock-inner-container">
+   <ng-container *ngFor="let item of dockItems">
+    <div class="dock-item-container" (click)="routeToLink(item.link)">
+      <div class="dock-item-icon">
+        <img [src]="getImageSrc(item.type)" [alt]="item.type">
+      </div>
+    </div>
+   </ng-container>
+  </div>
+</div>

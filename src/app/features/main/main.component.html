@@ -1,8 +1,8 @@
 <div class="main-container" [ngClass]="currentTheme">
   <div class="wallpaper-container">
-    <div class="wallpaper-wrapper">
+    <!-- <div class="wallpaper-wrapper">
       <div class="circle-2"></div>
-      <div class="grid" [@inOutAnimation]="{value: ':enter', params: {delay: 0.6}}">
+      <div class="grid" [@inOutAnimation]="{value: ':enter', params: {delay: 0.8}}">
         <div class="vertical">
           <div class="line"></div>
           <div class="line"></div>
@@ -61,7 +61,8 @@
           <div class="line"></div>
         </div>
       </div>
-    </div>
+    </div> -->
+    <app-background class="background"></app-background>
     <div class="desktop-wrapper">
       <app-topbar class="topbar"
         (emitValue)="updateTheme($event)"
@@ -84,7 +85,10 @@
             </app-desktop-item>
           </ng-container>
         </div>
-        <div class="window-overlay" *ngIf="this.router.url !== '/main'" [@inOutAnimation]="{value: ':enter', params: {delay: 0.1}}">
+        <div class="router-container" *ngIf="this.router.url !== '/main'" [@inOutAnimation]="{value: ':enter', params: {delay: 0}}">
+          <router-outlet></router-outlet>
+        </div>
+        <!-- <div class="window-overlay" *ngIf="this.router.url !== '/main'" [@inOutAnimation]="{value: ':enter', params: {delay: 0.1}}">
           <app-window
             class="window"
             [ngClass]="{'maximized': maximizeWindow}"
@@ -93,9 +97,9 @@
           >
             <router-outlet></router-outlet>
           </app-window>
-        </div>
+        </div> -->
       </div>
-      <app-dock class="dock">
+      <app-dock class="dock" [@inOutAnimation]="{value: ':enter', params: {delay: 0.6}}">
       </app-dock>
     </div>
   </div>

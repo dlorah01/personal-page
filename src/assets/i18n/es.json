@@ -38,11 +38,17 @@
       "page": "Página",
       "of": "de",
       "program": "Editor de Docs",
-      "menu":"Exportar"
+      "menu":"Exportar",
+      "type": "doc",
+      "route": "/main/about",
+      "shortcut": "about"
     },
     "projects":{
       "title": "Proyectos",
       "program": "Visualizador de Carpetas",
+      "type": "app",
+      "route": "/main/projects",
+      "shortcut": "projects",
       "menu":"Exportar",
       "detail-title": "Detalle de Proyecto",
       "detail-program": "Editor de Código",
@@ -70,9 +76,12 @@
       "year": "Año"
     },
     "email":{
-      "title": "Contácteme",
+      "title": "Contacto",
       "program": "Emisor de Correo",
-      "menu": "Exportar"
+      "menu": "Exportar",
+      "type": "iml",
+      "route": "/main/contact",
+      "shortcut": "contact"
     }
   }
 }

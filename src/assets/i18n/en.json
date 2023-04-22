@@ -38,11 +38,17 @@
       "page": "Page",
       "of": "of",
       "program": "Document Editor",
-      "menu": "Export"
+      "menu": "Export",
+      "type": "doc",
+      "route": "/main/about",
+      "shortcut": "about"
     },
     "projects":{
       "title": "Projects",
       "program": "Folder Viewer",
+      "type": "app",
+      "route": "/main/projects",
+      "shortcut": "projects",
       "menu":"Export",
       "detail-title": "Project Detail",
       "detail-program": "Code editor",
@@ -72,7 +78,10 @@
     "email":{
       "title": "Contact me",
       "program": "Email Sender",
-      "menu":"Export"
+      "menu":"Export",
+      "type": "iml",
+      "route": "/main/contact",
+      "shortcut": "contact"
     }
   }
 }

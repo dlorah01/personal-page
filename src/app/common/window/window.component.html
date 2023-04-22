@@ -1,4 +1,7 @@
-<div class="window-container" [ngClass]="{'maximize': maximize}">
+<div class="window-container"
+  [ngClass]="{'maximize': maximize}"
+  [@inOutAnimation]="{value: ':enter', params: {delay: 0.1}}"
+  >
   <div class="window-topbar-container">
     <div class="window-controls">
       <a class="control-button close-button" (click)="closeWindow()"></a>
