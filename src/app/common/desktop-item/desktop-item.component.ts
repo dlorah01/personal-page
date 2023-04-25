@@ -11,7 +11,6 @@ export class DesktopItemComponent {
   @Input() name !: string
   @Input() type !: string
   @Input() currentTheme !: string
-  timeSubscription!: Subscription
 
   constructor() {}
 

@@ -1,7 +1,8 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -32,52 +33,38 @@ import { TranslateService } from '@ngx-translate/core';
   ]
 })
 
-export class ProjectsComponent {
+export class ProjectsComponent implements OnDestroy {
   title !: string
-  content!: any[]
-  maximizeWindow: boolean = false
-  currentRoute = 'default'
-  x = 0
+  content: any[] = []
+  currentRoute = ''
+  projectsSubscription!: Subscription
 
   constructor(public router: Router, private route: ActivatedRoute, private translate: TranslateService) {
-    this.title = 'sections.projects.title'
-    this.content = [
-      {
-        name: "sections.projects.content.project-1.name",
-        url: "sections.projects.content.project-1.url",
-        client: "sections.projects.content.project-1.client",
-        year: "sections.projects.content.project-1.year",
-        description: "sections.projects.content.project-1.name",
-      },
-      {
-        name: "sections.projects.content.project-2.name",
-        url: "sections.projects.content.project-2.url",
-        client: "sections.projects.content.project-2.client",
-        year: "sections.projects.content.project-2.year",
-        description: "sections.projects.content.project-2.name",
-      },
-      {
-        name: "sections.projects.content.project-3.name",
-        url: "sections.projects.content.project-3.url",
-        client: "sections.projects.content.project-3.client",
-        year: "sections.projects.content.project-3.year",
-        description: "sections.projects.content.project-3.name",
+    this.projectsSubscription = this.translate.get('sections.projects').subscribe((data: any) => {
+      this.title = data.title
+      for (let key in data.content) {
+        const project = data.content[key]
+        let projectItem = {
+          id: project.id,
+          name: `sections.projects.content.${key}.name`,
+          year: project.year,
+        }
+        this.content.push(projectItem)
       }
-    ]
-  }
-
-  closeWindow(): void {
-    this.maximizeWindow = false
-    this.router.navigate(['/projects'], {relativeTo: this.route})
-    console.log('url', this.router.url)
-  }
-
-  resizeWindow(value: boolean): void {
-    this.maximizeWindow = value
+      // if (this.activeMenu()) {
+      //   const index = this.desktopItems.findIndex((x) => x.shortcut === this.router.url.split('/')[2])
+      //   console.log('dsds', index)
+      //   this.updateSelection(index)
+      // }
+    })
   }
 
   updateSelection(event: any) {
-    this.currentRoute = event.year
+    this.currentRoute = event.id
     this.router.navigate(['project/' + this.currentRoute], {relativeTo: this.route})
+  }
+
+  ngOnDestroy(): void {
+    this.projectsSubscription.unsubscribe()
   }
 }
