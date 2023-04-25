@@ -11,7 +11,7 @@ export class ProjectDetailGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const num = parseInt(route.paramMap.get('id')?.split('-')[1] || '50')
-      const canDirect = num <= 24 && num >= 1
+      const canDirect = num <= 26 && num >= 1
       return !canDirect ? this.router.parseUrl('/main') : canDirect
   }
 
