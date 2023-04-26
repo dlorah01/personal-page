@@ -1,4 +1,5 @@
 @import "../../../styles/colors"
+@import "../../../styles/queries"
 
 .window-container
   display: flex
@@ -119,6 +120,16 @@
       justify-content: center
       font-family: 'Montserrat', sans-serif
       font-weight: 500
+
+      &.no-small
+        display: none
+
+        @media screen and (min-width: $medium)
+          display: flex
+
+      &.small
+        @media screen and (min-width: $medium)
+          display: none
 
   .window-content-container
     background-color: var(--base-background-inner)

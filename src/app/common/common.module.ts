@@ -20,6 +20,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PipesModule } from '../pipes/pipes.module';
 import { VisibilityDirective } from '../directives/visibility.directive';
 import { IntersectionObserverModule } from '@ng-web-apis/intersection-observer';
+import { PreviewComponent } from './window-types/preview/preview.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { IntersectionObserverModule } from '@ng-web-apis/intersection-observer';
     SelectComponent,
     SelectSimplifiedComponent,
     SelectOptionComponent,
-    VisibilityDirective
+    VisibilityDirective,
+    PreviewComponent
   ],
   imports: [
     CommonModule,
@@ -54,6 +56,7 @@ import { IntersectionObserverModule } from '@ng-web-apis/intersection-observer';
     WindowComponent,
     WordComponent,
     FolderComponent,
+    PreviewComponent,
     SelectSimplifiedComponent,
     SelectComponent,
     SelectOptionComponent,

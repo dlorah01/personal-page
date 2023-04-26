@@ -1,31 +1,7 @@
 <div class="window-overlay">
   <app-window class="window">
     <div class="project-detail-container" *ngIf="project">
-      <div class="detail-image-container">
-        <img [src]="getImageSrc()" [alt]="project.name">
-      </div>
-      <div class="project-detail-data-container">
-        <div class="project-detail-name">{{project.name | translate}}</div>
-        <div class="project-detail-year">{{project.year}}</div>
-        <div class="project-detail-description-container">
-          <ng-container *ngFor="let description of project.description | translate">
-            <div class="project-detail-description">{{description}}</div>
-          </ng-container>
-        </div>
-        <div class="project-detail-year">{{project.framework}}</div>
-        <div class="project-detail-technologies-container">
-          <ng-container *ngFor="let technology of project.technologies">
-            <div class="project-detail-technology">{{technology}}</div>
-          </ng-container>
-        </div>
-        <div class="project-detail-topics-container">
-          <ng-container *ngFor="let topic of project.topics | translate">
-            <div class="project-detail-technology">{{topic}}</div>
-          </ng-container>
-        </div>
-
-        <div class="project-detail-url" (click)="routeToLink(project.url)">Go to Project</div>
-      </div>
+      <app-preview [project]="project" *ngIf="project"></app-preview>
     </div>
   </app-window>
 </div>

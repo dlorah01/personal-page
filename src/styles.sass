@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/cdk/overlay-prebuilt.css'
+
+$small: 576px
+$medium: 768px
+$large: 992px
+
 *
   box-sizing: border-box
   -moz-box-sizing: border-box
@@ -10,7 +15,10 @@ html
   font-family: sans-serif
   -ms-text-size-adjust: 100%
   -webkit-text-size-adjust: 100%
-  font-size: 14px
+  font-size: 12px
+
+  @media screen and (min-width: $medium)
+    font-size: 14px
 
   body
     margin: 0

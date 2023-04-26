@@ -8,7 +8,10 @@
       <a class="control-button maximize-button" (click)="maximizeWindow()" *ngIf="!maximize"></a>
       <a class="control-button minimize-button" (click)="minimizeWindow()" *ngIf="maximize"></a>
     </div>
-    <div class="window-name">
+    <div class="window-name small">
+      {{this.program | translate}}
+    </div>
+    <div class="window-name no-small">
       {{this.name | translate}} - {{this.program | translate}}
     </div>
   </div>

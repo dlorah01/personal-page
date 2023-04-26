@@ -52,6 +52,10 @@
       "menu":"Exportar",
       "detail-title": "Detalle de Proyecto",
       "detail-program": "Editor de Código",
+      "description": "Descripción",
+      "framework": "Framework utilizado",
+      "technologies": "Tecnologías",
+      "topics": "Temas",
       "content": {
         "a": {
           "id": "project-1",

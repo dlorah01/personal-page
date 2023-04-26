@@ -1,4 +1,5 @@
 @import "../../../styles/colors"
+@import "../../../styles/queries"
 
 .topbar-container
   width: 100%
@@ -63,3 +64,14 @@
           position: relative
           width: 100%
           height: 100%
+
+      &.clock-item
+        &.no-small
+          display: none
+
+          @media screen and (min-width: $medium)
+            display: flex
+
+        &.small
+          @media screen and (min-width: $medium)
+            display: none

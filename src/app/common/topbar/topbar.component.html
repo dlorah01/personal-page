@@ -36,7 +36,8 @@
           </ng-container>
         </app-select>
       </div>
-      <div class="setting-item clock-item">{{ currentTime | localizedDate: 'EEEE MMM d h:mm a' }}</div>
+      <div class="setting-item clock-item small">{{ currentTime | localizedDate: 'h:mm a' }}</div>
+      <div class="setting-item clock-item no-small">{{ currentTime | localizedDate: 'EEEE MMM d h:mm a' }}</div>
     </div>
   </div>
 </div>

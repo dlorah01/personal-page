@@ -1,0 +1,39 @@
+<div class="preview-container">
+  <div class="preview-wrapper" *ngIf="project">
+    <div class="project-detail-image-container" *ngIf="project">
+      <img [src]="imgSource" [alt]="project.name">
+      <img [src]="imgSource" class="image-hide" [alt]="project.name">
+    </div>
+    <div class="project-detail-data-container">
+      <div class="section-container">
+        <div class="project-detail-name">{{project.name | translate}}</div>
+      <div class="project-detail-details">{{project.year}} - {{project.client | translate}}</div>
+      <div class="project-detail-title">{{"sections.projects.description" | translate}}:</div>
+      <div class="project-detail-description-container">
+        <ng-container *ngFor="let description of project.description | translate">
+          <div class="project-detail-description" [ngClass]="{'padding-left': isADetail(description)}">{{description}}</div>
+        </ng-container>
+      </div>
+
+      <div class="project-detail-title">{{"sections.projects.framework" | translate}}:</div>
+      <div class="project-detail-framework">{{project.framework}}</div>
+
+      <div class="project-detail-title">{{"sections.projects.technologies" | translate}}:</div>
+      <div class="project-detail-technologies-container">
+        <ng-container *ngFor="let technology of project.technologies">
+          <div class="project-detail-technology">{{technology}}</div>
+        </ng-container>
+      </div>
+
+      <div class="project-detail-title">{{"sections.projects.topics" | translate}}:</div>
+      <div class="project-detail-topics-container">
+        <ng-container *ngFor="let topic of project.topics | translate">
+          <div class="project-detail-technology">{{topic}}</div>
+        </ng-container>
+      </div>
+      </div>
+
+      <div class="project-detail-url" (click)="routeToLink(project.url)">Go to Project</div>
+    </div>
+  </div>
+</div>

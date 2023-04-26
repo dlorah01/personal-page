@@ -38,12 +38,6 @@ export class ProjectDetailComponent implements OnDestroy {
     this.projectSubscription.unsubscribe()
   }
 
-
-  getImageSrc(): string {
-    const v  = "n"
-    return `../../../../assets/images/projects/image-project-${v}.jpg`;
-  }
-
   routeToLink(url: string): void {
     window.open(url, "_blank");
   }
