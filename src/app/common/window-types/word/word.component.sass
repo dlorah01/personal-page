@@ -1,4 +1,5 @@
 @import '../../../../styles/colors'
+@import '../../../../styles/queries'
 
 .word-container
   width: 100%
@@ -28,9 +29,12 @@
       border: 1px solid rgba(var(--base-hover), 0.3)
 
       &.alignment-buttons
-        display: flex
+        display: none
         column-gap: 5px
         padding: 5px
+
+        @media screen and (min-width: $small)
+          display: flex
 
         .alignment-button
           display: flex
@@ -111,11 +115,20 @@
       position: relative
       padding: 5px
 
+      .text-container
+        text-align: center
+
       &.font-type-select
-        width: 250px
+        width: 180px
+
+        @media screen and (min-width: $medium)
+          width: 180px
 
       &.font-size-select
-        width: 100px
+        width: 50px
+
+        @media screen and (min-width: $medium)
+          width: 100px
 
   .word-document-wrapper
     width: 100%
@@ -132,9 +145,14 @@
       border: 1px solid var(--base-font)
       color: var(--base-font)
       width: 100%
-      min-height: 650px
-      max-width: 600px
-      padding: 75px 65px 50px
+      width: 90%
+      padding: 50px 20px 30px
+      min-height: 658px
+
+      @media screen and (min-width: $medium)
+        max-width: 600px
+        padding: 75px 65px 50px
+        min-height: 650px
 
       &.left
         .image-container
@@ -194,88 +212,88 @@
 
       &.small
         .title
-          font-size: 22px
+          font-size: 1.571rem
 
         .subtitle
-          font-size: 18px
+          font-size: 1.371rem
 
         .content
           .content-paragraph
-            font-size: 8px
+            font-size: 0.571rem
 
             .name, .bacherol
-              font-size: 12px
+              font-size: 0.857rem
 
             .bacherol
-              font-size: 10px
+              font-size: 0.714rem
 
       &.semi-small
         .title
-          font-size: 26px
+          font-size: 1.857rem
 
         .subtitle
-          font-size: 22px
+          font-size: 1.571rem
 
         .content
           .content-paragraph
-            font-size: 12px
+            font-size: 0.857rem
 
             .name
-              font-size: 16px
+              font-size: 1.143rem
 
             .bacherol
-              font-size: 14px
+              font-size: 1rem
 
       &.medium
         .title
-          font-size: 30px
+          font-size: 2.143rem
 
         .subtitle
-          font-size: 26px
+          font-size: 1.857rem
 
         .content
           .content-paragraph
-            font-size: 16px
+            font-size: 1.143rem
 
             .name
-              font-size: 20px
+              font-size: 1.429rem
 
             .bacherol
-              font-size: 18px
+              font-size: 1.286rem
 
       &.semi-big
         .title
-          font-size: 34px
+          font-size: 2.429rem
 
         .subtitle
-          font-size: 30px
+          font-size: 2.143rem
 
         .content
           .content-paragraph
-            font-size: 20px
+            font-size: 1.429rem
 
             .name
-              font-size: 24px
+              font-size: 1.714rem
 
             .bacherol
-              font-size: 22px
+              font-size: 1.571rem
 
       &.big
         .title
-          font-size: 38px
+          font-size: 2.714rem
 
         .subtitle
-          font-size: 34px
+          font-size: 2.429rem
 
         .content
           .content-paragraph
-            font-size: 24px
+            font-size: 1.714rem
 
             .name
-              font-size: 28px
+              font-size: 2rem
 
             .bacherol
-              font-size: 26px
+              font-size: 1.857rem
 
       .image-container
         display: flex
@@ -284,13 +302,17 @@
         justify-content: center
 
         .image-wrapper
-          width: 150px
-          height: 150px
+          width: 100px
+          height: 100px
           display: flex
           align-items: center
           margin-bottom: 40px
           border-radius: 50%
           overflow: hidden
+
+          @media screen and (min-width: $medium)
+            width: 150px
+            height: 150px
 
           img
             width: 100%
@@ -299,7 +321,7 @@
 
       .title
         width: 100%
-        margin-bottom: 40px
+        margin-bottom: 2.857rem
         font-weight: 700
         font-size: 30px
         text-transform: uppercase
@@ -307,7 +329,7 @@
 
       .subtitle
         width: 100%
-        margin-bottom: 40px
+        margin-bottom: 2.857rem
         font-weight: 700
         font-size: 26px
         text-transform: Capitalize
@@ -348,11 +370,22 @@
       column-gap: 20px
 
       .word-settings-2-item
+        &.pagination-item
+          display: none
+
+          @media screen and (min-width: $small)
+            display: flex
+
         .bold-content
           font-weight: 500
 
       .items-wrapper
         display: flex
-        justify-content: center
+        justify-content: space-between
         align-items: center
         column-gap: 20px
+        width: 100%
+
+        @media screen and (min-width: $small)
+          justify-content: center
+          width: unset

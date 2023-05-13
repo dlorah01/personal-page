@@ -7,8 +7,8 @@ import { Size } from './models/size';
   templateUrl: './word.component.html',
   styleUrls: ['./word.component.sass']
 })
-export class WordComponent {
 
+export class WordComponent {
   @Input() title!: string
   @Input() content!: any[]
 

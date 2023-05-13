@@ -5,7 +5,7 @@
         (change)="changeFontType($event)"
         [blurred]="true"
         >
-          <ng-container *ngFor="let item of fonts" class="select-option">
+          <ng-container *ngFor="let item of fonts; let i = index" class="select-option">
             <app-select-option value="{{item.name}}">
               <div class="text-container" class="{{item.style}}">
                {{item.name}}
@@ -56,8 +56,8 @@
         <div class="line-4"></div>
       </div>
     </div>
-
   </div>
+
   <div class="word-document-wrapper" waIntersectionObserver waIntersectionThreshold="0.5">
     <ng-container *ngIf="content.length">
       <ng-container *ngFor="let item of content; let i = index">
@@ -104,9 +104,10 @@
     </ng-container>
 
   </div>
+
   <div class="word-settings-2">
     <div class="word-settings-2-container">
-      <div class="word-settings-2-item">
+      <div class="word-settings-2-item pagination-item">
        <span class="bold-content">{{'sections.about.page' | translate}}</span>: {{this.currentPage}} {{'sections.about.of' | translate}}  {{this.pages}}
       </div>
       <div class="items-wrapper">
@@ -118,6 +119,5 @@
          </div>
       </div>
     </div>
-
   </div>
 </div>
