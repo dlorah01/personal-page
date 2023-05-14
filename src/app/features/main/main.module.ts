@@ -7,7 +7,7 @@ import { CommonComponentsModule } from 'src/app/common/common.module';
 import { AboutMeComponent } from '../components/about-me/about-me.component';
 import { ProjectsComponent } from '../components/projects/projects.component';
 import { EmailComponent } from '../components/email/email.component';
-import { BackgroundComponent } from '../background/background.component';
+import { BackgroundComponent } from '../../common/background/background.component';
 
 
 @NgModule({
@@ -15,8 +15,7 @@ import { BackgroundComponent } from '../background/background.component';
     MainComponent,
     AboutMeComponent,
     ProjectsComponent,
-    EmailComponent,
-    BackgroundComponent
+    EmailComponent
   ],
   imports: [
     CommonModule,

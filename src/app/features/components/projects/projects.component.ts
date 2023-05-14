@@ -48,6 +48,8 @@ export class ProjectsComponent implements OnDestroy {
           id: project.id,
           name: `sections.projects.content.${key}.name`,
           year: project.year,
+          client: `sections.projects.content.${key}.client`,
+          technologies: project.technologies.sort((a: string, b: string) => a.toLowerCase() < b.toLowerCase() ? -1 : a.toLowerCase() > b.toLowerCase() ? 1 : 0)
         }
         this.content.push(projectItem)
       }

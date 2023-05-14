@@ -56,6 +56,8 @@
       "framework": "Framework utilizado",
       "technologies": "Tecnologías",
       "topics": "Temas",
+      "total": "Total",
+      "projects": "proyectos",
       "content": {
         "a": {
           "id": "project-1",
@@ -542,7 +544,8 @@
         }
       },
       "name": "Nombre",
-      "year": "Año"
+      "year": "Año",
+      "client": "Cliente"
     },
     "email":{
       "title": "Contacto",

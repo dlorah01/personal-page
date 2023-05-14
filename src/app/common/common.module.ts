@@ -21,6 +21,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { VisibilityDirective } from '../directives/visibility.directive';
 import { IntersectionObserverModule } from '@ng-web-apis/intersection-observer';
 import { PreviewComponent } from './window-types/preview/preview.component';
+import { BackgroundComponent } from './background/background.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { PreviewComponent } from './window-types/preview/preview.component';
     SelectSimplifiedComponent,
     SelectOptionComponent,
     VisibilityDirective,
-    PreviewComponent
+    PreviewComponent,
+    BackgroundComponent,
   ],
   imports: [
     CommonModule,
@@ -60,6 +62,7 @@ import { PreviewComponent } from './window-types/preview/preview.component';
     SelectSimplifiedComponent,
     SelectComponent,
     SelectOptionComponent,
+    BackgroundComponent
   ]
 })
 export class CommonComponentsModule { }

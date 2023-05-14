@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { DOCUMENT } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Subscription } from 'rxjs';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-main',
@@ -41,7 +42,7 @@ export class MainComponent implements OnInit, OnDestroy {
   currentItemMenu: string[] = []
   itemsSubscription!: Subscription
 
-  constructor(public router: Router, private route: ActivatedRoute, private translate: TranslateService, @Inject(DOCUMENT) private document: Document) {
+  constructor(public router: Router, private route: ActivatedRoute, private themeService: ThemeService, private translate: TranslateService, @Inject(DOCUMENT) private document: Document) {
     this.itemsSubscription = this.translate.get('sections').subscribe((data: any) => {
       for (let key in data) {
         let desktopItem = {
@@ -77,6 +78,7 @@ export class MainComponent implements OnInit, OnDestroy {
   updateTheme(selection: string) {
     this.document.body.classList.replace(this.currentTheme, selection)
     this.currentTheme = selection
+    this.themeService.setItem(selection)
   }
 
   updateLanguage(selection: any) {
