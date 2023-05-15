@@ -62,7 +62,8 @@ import { BackgroundComponent } from './background/background.component';
     SelectSimplifiedComponent,
     SelectComponent,
     SelectOptionComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    OutlookComponent
   ]
 })
 export class CommonComponentsModule { }

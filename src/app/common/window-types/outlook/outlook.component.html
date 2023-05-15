@@ -1,1 +1,85 @@
-<p>outlook works!</p>
+<div class="outlook-container">
+  <div class="outlook-settings">
+    <div class="settings-row">
+      <div class="settings-item search-item">
+       <!-- <div class="input-wrapper">
+        <input class="search-input" type="text" placeholder="{{'sections.projects.placeholder' | translate}}" #search>
+        <div class="close-button" *ngIf="search.value !== ''" (click)="clearField()"></div>
+       </div> -->
+      </div>
+      <div class="settings-item view-buttons">
+        <!-- <div class="view-button view-list" [ngClass]="{'active': currentView === 'list'}" (click)="changeView('list')">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+          <div class="line-3"></div>
+          <div class="line-4"></div>
+        </div>
+        <div class="view-button view-folder" [ngClass]="{'active': currentView === 'folder'}" (click)="changeView('folder')">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+          <div class="line-3"></div>
+          <div class="line-4"></div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="outlook-items-wrapper">
+    <div class="items-list-view">
+      hola
+      <!-- <ng-container *ngIf="content.length">
+        <div class="settings-row">
+          <div class="settings-item settings-name" (click)="sortItems('name')">
+            {{'sections.projects.name' | translate}}
+            <div class="arrow-up" *ngIf="previous === 'name' && arrow === false"></div>
+            <div class="arrow-down" *ngIf="previous === 'name' && arrow === true"></div>
+          </div>
+          <div class="settings-item settings-client" (click)="sortItems('client')">
+            {{'sections.projects.client' | translate}}
+            <div class="arrow-up" *ngIf="previous === 'client' && arrow === false"></div>
+            <div class="arrow-down" *ngIf="previous === 'client' && arrow === true"></div>
+          </div>
+          <div class="settings-item settings-technologies">
+            {{'sections.projects.technologies' | translate}}
+            <div class="arrow-up" *ngIf="previous === 'technologies' && arrow === false"></div>
+            <div class="arrow-down" *ngIf="previous === 'technologies' && arrow === true"></div>
+          </div>
+          <div class="settings-item settings-year" (click)="sortItems('year')">
+            {{'sections.projects.year' | translate}}
+            <div class="arrow-up" *ngIf="previous === 'year' && arrow === false"></div>
+            <div class="arrow-down" *ngIf="previous === 'year' && arrow === true"></div>
+          </div>
+        </div>
+        <div class="items-list">
+          <ng-container *ngFor="let item of searchContent; let i = index">
+            <div class="item-row" (click)="updateSelection(i)">
+              <div class="item-property item-name">
+                {{item.name | translate}}
+              </div>
+              <div class="item-property item-client">
+                {{item.client | translate}}
+              </div>
+              <div class="item-property item-technologies">
+                <span *ngFor="let tech of item.technologies.slice(0, 3); let isLast=last">
+                  {{tech}}{{isLast ? item.technologies.length > 3 ? '&nbsp;&nbsp;...' : '' : '&nbsp;&nbsp;-&nbsp;&nbsp; '}}
+                </span>
+              </div>
+              <div class="item-property item-year">
+                {{item.year | translate}}
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container> -->
+    </div>
+  </div>
+  <div class="outlook-settings-2">
+    <div class="outlook-settings-2-container">
+      <div class="outlook-settings-2-item pagination-item">
+        <!-- <span class="bold-content">{{'sections.projects.showing' | translate}}</span>: {{this.searchContent.length}} {{'sections.projects.project' | translate}} -->
+       </div>
+      <div class="outlook-settings-2-item pagination-item">
+       <!-- <span class="bold-content">{{'sections.projects.total' | translate}}</span>: {{this.content.length}} {{'sections.projects.project' | translate}} -->
+      </div>
+    </div>
+  </div>
+</div>

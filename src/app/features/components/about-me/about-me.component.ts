@@ -68,8 +68,4 @@ export class AboutMeComponent {
       }
     ]
   }
-
-  closeWindow(): void {
-    this.router.navigate([''], {relativeTo: this.route})
-  }
 }

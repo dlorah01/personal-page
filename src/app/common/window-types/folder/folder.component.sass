@@ -289,8 +289,17 @@
         .folder-item
           flex: 1
 
+          @media screen and (min-width: $medium)
+            flex: none
+            width: 12.5%
+
+            @media screen and (min-width: $large)
+              flex: none
+              width: 11.25%
+
           @media screen and (min-width: $extra-large)
             flex: none
+            width: 10%
 
           &::ng-deep
             .desktop-item-container

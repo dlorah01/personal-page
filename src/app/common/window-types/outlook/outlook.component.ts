@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-outlook',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./outlook.component.sass']
 })
 export class OutlookComponent {
+  @Input() title!: string
+  @Input() content: any[] = []
 
 }
