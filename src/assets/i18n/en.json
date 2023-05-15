@@ -545,7 +545,10 @@
       },
       "name": "Name",
       "year": "Year",
-      "client": "Client"
+      "client": "Client",
+      "placeholder": "Type to search",
+      "showing": "Showing",
+      "project": "projects"
     },
     "email":{
       "title": "Contact me",

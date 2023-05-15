@@ -545,7 +545,10 @@
       },
       "name": "Nombre",
       "year": "Año",
-      "client": "Cliente"
+      "client": "Cliente",
+      "placeholder": "Escribe para buscar",
+      "showing": "Mostrando",
+      "project": "proyectos"
     },
     "email":{
       "title": "Contacto",

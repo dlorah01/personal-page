@@ -3,7 +3,7 @@
 
 .preview-container
   width: 100%
-  min-height: 80vh
+  min-height: 100%
   display: flex
   flex-direction: column
   align-items: center
@@ -12,7 +12,7 @@
 
   .preview-wrapper
     width: 100%
-    min-height: 80vh
+    min-height: 100%
     display: flex
     flex-direction: column
     align-items: flex-start
@@ -29,6 +29,17 @@
     @media screen and (min-width: $large)
       flex-direction: row
 
+    @media screen and (min-width: $extra-large)
+      max-width: 1200px
+
+    .project-detail-image-container, .project-detail-data-container
+      background-color: var(--base-background-middle)
+      padding: 10px
+      border-radius: 5px
+
+      @media screen and (min-width: $medium)
+        padding: 20px
+
     .project-detail-image-container
       flex: 1
       position: relative
@@ -38,11 +49,15 @@
       justify-content: space-between
       row-gap: 20px
       width: 100%
+      align-self: stretch
 
       img
         border-radius: 5px
         width: 100%
         max-width: 400px
+        object-fit: cover
+        height: 100%
+        object-position: center
 
         @media screen and (min-width: $medium)
           max-width: 600px
@@ -73,54 +88,40 @@
         flex: 1
 
       .section-container
-        .project-detail-name
+        .tag-label
+          color: var(--base-font-tag)
+          font-family: 'Courier Prime', monospace
+          margin-bottom: 0.5rem
           font-weight: 700
-          text-transform: uppercase
-          font-size: 18px
 
-          @media screen and (min-width: $medium)
-            font-size: 24px
-
-        .project-detail-details
+        .text
+          margin-bottom: 0.5rem
           font-weight: 300
-          font-size: 11px
-          margin-bottom: 30px
-          text-transform: uppercase
+          line-height: 1.6
 
-          @media screen and (min-width: $medium)
-            font-size: 12px
+        .project-detail-name, .project-detail-details, .project-detail-description-container, .project-detail-framework, .project-detail-technologies-container,  .project-detail-topics-container
+          padding-left: 0.8rem
 
-        .project-detail-title
-          font-weight: 700
-          margin-bottom: 10px
-          text-transform: uppercase
-
-        .project-detail-description-container, .project-detail-framework, .project-detail-technologies-container, .project-detail-topics-container
-          margin-bottom: 25px
+          .text
+            padding-left: 0.7rem
 
         .project-detail-description-container
-          display: flex
-          flex-direction: column
-          row-gap: 10px
+          .text
+            display: flex
+            flex-direction: column
+            row-gap: 0.5rem
 
-          .project-detail-description.padding-left
-            padding-left: 20px
-            padding-right: 10px
+            .project-detail-description.padding-left
+              padding-left: 0.9rem
+              padding-right: 0.5rem
 
         .project-detail-technologies-container, .project-detail-topics-container
-          display: flex
-          flex-direction: row
-          column-gap: 10px
-          row-gap: 10px
-          flex-wrap: wrap
-          font-size: 10px
-
-          .project-detail-technology, .project-detail-topic
-            border-radius: 5px
-            background-color: var(--base-font)
-            color: var(--base-font-inverse)
-            padding: 5px 10px
-            font-weight: 500
+          .text
+            display: flex
+            flex-direction: row
+            column-gap: 0.5rem
+            row-gap: 0.5rem
+            flex-wrap: wrap
 
       .project-detail-url
         display: flex

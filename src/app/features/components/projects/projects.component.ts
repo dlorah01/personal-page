@@ -42,6 +42,7 @@ export class ProjectsComponent implements OnDestroy {
   constructor(public router: Router, private route: ActivatedRoute, private translate: TranslateService) {
     this.projectsSubscription = this.translate.get('sections.projects').subscribe((data: any) => {
       this.title = data.title
+      console.log('inicio')
       for (let key in data.content) {
         const project = data.content[key]
         let projectItem = {

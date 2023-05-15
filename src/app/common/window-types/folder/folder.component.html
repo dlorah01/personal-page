@@ -7,6 +7,12 @@
       <div class="settings-item settings-year" (click)="sortItems('year')">
         {{'sections.projects.year' | translate}}
       </div> -->
+      <div class="settings-item search-item">
+       <div class="input-wrapper">
+        <input class="search-input" type="text" placeholder="{{'sections.projects.placeholder' | translate}}" #search>
+        <div class="close-button" *ngIf="search.value !== ''" (click)="clearField()"></div>
+       </div>
+      </div>
       <div class="settings-item view-buttons">
         <div class="view-button view-list" [ngClass]="{'active': currentView === 'list'}" (click)="changeView('list')">
           <div class="line-1"></div>
@@ -49,7 +55,7 @@
           </div>
         </div>
         <div class="items-list">
-          <ng-container *ngFor="let item of content; let i = index">
+          <ng-container *ngFor="let item of searchContent; let i = index">
             <div class="item-row" (click)="updateSelection(i)">
               <div class="item-property item-name">
                 {{item.name | translate}}
@@ -70,9 +76,9 @@
         </div>
       </ng-container>
     </div>
-    <div class="items-folder-view" *ngIf="currentView === 'folder'">
-      <div class="folder-items-container" *ngIf="content.length" [@inOutAnimation]="{value: ':enter', params: {delay: 0.4}}">
-        <ng-container *ngFor="let item of content; let i = index">
+    <div class="items-folder-view" *ngIf="currentView === 'folder'" [@inOutAnimation]="{value: ':enter', params: {delay: 0.4}}">
+      <div class="folder-items-container" *ngIf="searchContent.length">
+        <ng-container *ngFor="let item of searchContent; let i = index">
           <app-desktop-item
           class="folder-item"
             [name]="item.name"
@@ -88,7 +94,10 @@
   <div class="folder-settings-2">
     <div class="folder-settings-2-container">
       <div class="folder-settings-2-item pagination-item">
-       <span class="bold-content">{{'sections.projects.total' | translate}}</span>: {{this.content.length}} {{'sections.projects.projects' | translate}}
+        <span class="bold-content">{{'sections.projects.showing' | translate}}</span>: {{this.searchContent.length}} {{'sections.projects.project' | translate}}
+       </div>
+      <div class="folder-settings-2-item pagination-item">
+       <span class="bold-content">{{'sections.projects.total' | translate}}</span>: {{this.content.length}} {{'sections.projects.project' | translate}}
       </div>
     </div>
   </div>
