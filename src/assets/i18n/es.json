@@ -548,7 +548,8 @@
       "client": "Cliente",
       "placeholder": "Escribe para buscar",
       "showing": "Mostrando",
-      "project": "proyectos"
+      "project": "proyectos",
+      "open": "Abrir proyecto"
     },
     "email":{
       "title": "Contacto",

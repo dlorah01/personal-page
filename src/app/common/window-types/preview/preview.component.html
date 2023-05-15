@@ -1,10 +1,31 @@
 <div class="preview-container">
-  <div class="preview-wrapper" *ngIf="project">
-    <div class="project-detail-image-container" *ngIf="project">
-      <img [src]="imgSource" [alt]="project.name">
-      <!-- <img [src]="imgSource" class="image-hide" [alt]="project.name"> -->
+  <div class="preview-settings">
+    <div class="settings-row">
+      <div class="settings-item view-buttons">
+        <div class="view-button view-left" [ngClass]="{'active': currentProportion === 'left'}" (click)="changeView('left')">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+        </div>
+        <div class="view-button view-center" [ngClass]="{'active': currentProportion === 'center'}" (click)="changeView('center')">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+        </div>
+        <div class="view-button view-right" [ngClass]="{'active': currentProportion === 'right'}" (click)="changeView('right')">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+        </div>
+      </div>
+      <div class="settings-item go-item">
+        <div class="project-detail-url" (click)="routeToLink(project.url)">{{ 'sections.projects.open' | translate}}</div>
+      </div>
     </div>
-    <div class="project-detail-data-container">
+  </div>
+
+  <div class="preview-wrapper" *ngIf="project" [@inOutAnimation]="{value: ':enter', params: {delay: 0.4}}">
+    <div class="project-detail-image-container" *ngIf="project" [ngClass]="[currentProportion]">
+      <img [src]="imgSource" [alt]="project.name">
+    </div>
+    <div class="project-detail-data-container" [ngClass]="[currentProportion]" contenteditable="true">
       <div class="section-container">
         <div class="tag-label">
           &lt;project&gt;
@@ -90,8 +111,14 @@
           &lt;project&gt;
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="project-detail-url" (click)="routeToLink(project.url)">Go to Project</div>
+  <div class="preview-settings-2">
+    <div class="preview-settings-2-container">
+      <div class="preview-settings-2-item pagination-item">
+        <span class="bold-content">{{'sections.projects.framework' | translate}}</span>: {{currentFramework | translate}}
+       </div>
     </div>
   </div>
 </div>
