@@ -22,6 +22,7 @@ import { VisibilityDirective } from '../directives/visibility.directive';
 import { IntersectionObserverModule } from '@ng-web-apis/intersection-observer';
 import { PreviewComponent } from './window-types/preview/preview.component';
 import { BackgroundComponent } from './background/background.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { BackgroundComponent } from './background/background.component';
     VisibilityDirective,
     PreviewComponent,
     BackgroundComponent,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,8 @@ import { BackgroundComponent } from './background/background.component';
     SelectComponent,
     SelectOptionComponent,
     BackgroundComponent,
-    OutlookComponent
+    OutlookComponent,
+    LoadingComponent
   ]
 })
 export class CommonComponentsModule { }

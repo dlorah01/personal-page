@@ -41,6 +41,7 @@ export class MainComponent implements OnInit, OnDestroy {
   currentTheme: string = 'theme-1'
   currentItemMenu: string[] = []
   itemsSubscription!: Subscription
+  loading = false
 
   constructor(public router: Router, private route: ActivatedRoute, private themeService: ThemeService, private translate: TranslateService, @Inject(DOCUMENT) private document: Document) {
     this.itemsSubscription = this.translate.get('sections').subscribe((data: any) => {
@@ -87,5 +88,9 @@ export class MainComponent implements OnInit, OnDestroy {
 
   activeMenu(): boolean {
     return this.router.url !== '/main' ? true : false
+  }
+
+  loadingDesktop(event: boolean): void {
+    this.loading = true
   }
 }

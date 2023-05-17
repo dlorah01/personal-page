@@ -1,0 +1,47 @@
+.loading-container
+  width: 100%
+  min-height: calc(100dvh - 20px)
+  color: var(--base-font)
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  font-weight: 500
+  row-gap: 20px
+
+  .logo-container
+    font-size: 5rem
+    transition: all 0.2 ease
+
+    .logo
+      font-family: 'Montserrat', sans-serif
+      font-weight: 700
+      color: var(--base-font)
+      border-radius: 5px
+        // border: 1px solid var(--color-2)
+      padding: 5px
+      display: flex
+      align-items: center
+      justify-content: center
+      cursor: default
+
+      .span-letter
+        border-radius: 5px
+        margin-left: 5px
+        padding: 1px 2px
+        background: var(--base-font)
+        color: var(--color-3)
+
+  .bar-container
+    height: 40px
+    width: 80%
+    border: 1px solid var(--base-background-outer)
+    border-radius: 5px
+    padding: 10px
+    transition: all 0.2 ease
+
+    .progress
+      height: 100%
+      border-radius: 5px
+      background: var(--base-font)
+      width: 100%

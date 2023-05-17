@@ -1,5 +1,6 @@
 <div class="main-container" [ngClass]="currentTheme">
-  <div class="wallpaper-container">
+  <app-loading (finishEmit)="loadingDesktop($event)" *ngIf="!loading" [@inOutAnimation]="{value: ':enter', params: {delay: 0}}"></app-loading>
+  <div class="wallpaper-container" *ngIf="loading">
     <!-- <div class="wallpaper-wrapper">
       <div class="circle-2"></div>
       <div class="grid" [@inOutAnimation]="{value: ':enter', params: {delay: 0.8}}">
@@ -86,7 +87,7 @@
           </ng-container>
         </div>
         <div class="router-container" *ngIf="this.router.url !== '/main'" [@inOutAnimation]="{value: ':enter', params: {delay: 0}}">
-          <router-outlet></router-outlet>
+          <router-outlet [@inOutAnimation]="{value: ':enter', params: {delay: 0.2}}"></router-outlet>
         </div>
         <!-- <div class="window-overlay" *ngIf="this.router.url !== '/main'" [@inOutAnimation]="{value: ':enter', params: {delay: 0.1}}">
           <app-window
