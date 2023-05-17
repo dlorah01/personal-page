@@ -14,7 +14,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
         width: '100%'
       })),
       transition('start => end', [
-        animate('4s')
+        animate('3s')
       ])
     ])
   ]

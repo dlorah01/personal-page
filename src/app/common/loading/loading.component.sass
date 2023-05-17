@@ -1,6 +1,8 @@
+@import "../../../styles/queries"
+
 .loading-container
   width: 100%
-  min-height: calc(100dvh - 20px)
+  min-height: calc(100dvh - 40px)
   color: var(--base-font)
   display: flex
   flex-direction: column
@@ -39,6 +41,9 @@
     border-radius: 5px
     padding: 10px
     transition: all 0.2 ease
+
+    @media screen and (min-width: $medium)
+      width: 50%
 
     .progress
       height: 100%

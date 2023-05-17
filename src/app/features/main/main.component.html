@@ -1,68 +1,6 @@
 <div class="main-container" [ngClass]="currentTheme">
   <app-loading (finishEmit)="loadingDesktop($event)" *ngIf="!loading" [@inOutAnimation]="{value: ':enter', params: {delay: 0}}"></app-loading>
-  <div class="wallpaper-container" *ngIf="loading">
-    <!-- <div class="wallpaper-wrapper">
-      <div class="circle-2"></div>
-      <div class="grid" [@inOutAnimation]="{value: ':enter', params: {delay: 0.8}}">
-        <div class="vertical">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-        <div class="dots">
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-        </div>
-        <div class="horizontal">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-    </div> -->
+  <div class="wallpaper-container" *ngIf="loading" [@inOutAnimation]="{value: ':enter', params: {delay: 0.2}}">
     <app-background class="background"></app-background>
     <div class="desktop-wrapper">
       <app-topbar class="topbar"
@@ -74,7 +12,7 @@
         >
       </app-topbar>
       <div class="desktop">
-        <div class="desktop-items-container" *ngIf="desktopItems" [@inOutAnimation]="{value: ':enter', params: {delay: 0.4}}">
+        <div class="desktop-items-container" *ngIf="desktopItems" [@inOutAnimation]="{value: ':enter', params: {delay: 0.6}}">
           <ng-container *ngFor="let item of desktopItems; let i = index">
             <app-desktop-item
               [name]="item.name"
@@ -86,21 +24,11 @@
             </app-desktop-item>
           </ng-container>
         </div>
-        <div class="router-container" *ngIf="this.router.url !== '/main'" [@inOutAnimation]="{value: ':enter', params: {delay: 0}}">
-          <router-outlet [@inOutAnimation]="{value: ':enter', params: {delay: 0.2}}"></router-outlet>
+        <div class="router-container" *ngIf="this.router.url !== '/main'" [@inOutAnimation]="{value: ':enter', params: {delay: 0.2}}">
+          <router-outlet [@inOutAnimation]="{value: ':enter', params: {delay: 0.4}}"></router-outlet>
         </div>
-        <!-- <div class="window-overlay" *ngIf="this.router.url !== '/main'" [@inOutAnimation]="{value: ':enter', params: {delay: 0.1}}">
-          <app-window
-            class="window"
-            [ngClass]="{'maximized': maximizeWindow}"
-            (onClose)="closeWindow()"
-            (onSizeChange)="resizeWindow($event)"
-          >
-            <router-outlet></router-outlet>
-          </app-window>
-        </div> -->
       </div>
-      <app-dock class="dock" [@inOutAnimation]="{value: ':enter', params: {delay: 0.6}}">
+      <app-dock class="dock" [@inOutAnimation]="{value: ':enter', params: {delay: 0.8}}">
       </app-dock>
     </div>
   </div>
