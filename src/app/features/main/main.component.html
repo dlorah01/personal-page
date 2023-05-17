@@ -1,12 +1,12 @@
 <div class="main-container" [ngClass]="currentTheme">
   <app-loading (finishEmit)="loadingDesktop($event)" *ngIf="!loading" [@inOutAnimation]="{value: ':enter', params: {delay: 0}}"></app-loading>
   <div class="wallpaper-container" *ngIf="loading" [@inOutAnimation]="{value: ':enter', params: {delay: 0.2}}">
-    <app-background class="background"></app-background>
+    <app-background class="background" [@inOutAnimation]="{value: ':enter', params: {delay: 0.4}}"></app-background>
     <div class="desktop-wrapper">
       <app-topbar class="topbar"
         (emitValue)="updateTheme($event)"
         (emitLanguageValue)="updateLanguage($event)"
-        [@inOutAnimation]="{value: ':enter', params: {delay: 0.2}}"
+        [@inOutAnimation]="{value: ':enter', params: {delay: 0.4}}"
         [menu]="activeMenu()"
         [menuContent]=" currentItemMenu"
         >
@@ -24,7 +24,7 @@
             </app-desktop-item>
           </ng-container>
         </div>
-        <div class="router-container" *ngIf="this.router.url !== '/main'" [@inOutAnimation]="{value: ':enter', params: {delay: 0.2}}">
+        <div class="router-container" *ngIf="this.router.url !== '/main'" [@inOutAnimation]="{value: ':enter', params: {delay: 0.6}}">
           <router-outlet [@inOutAnimation]="{value: ':enter', params: {delay: 0.4}}"></router-outlet>
         </div>
       </div>
